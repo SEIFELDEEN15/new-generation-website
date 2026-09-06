@@ -48,14 +48,23 @@
                 <a href="clients.html" class="flex items-center px-3 text-sm font-bold uppercase text-gray-700 dark:text-blue-300 hover:bg-brandOrange hover:text-white transition-colors h-full">CLIENTS</a>
                 <a href="contact.html" class="flex items-center px-3 text-sm font-bold uppercase text-gray-700 dark:text-blue-300 hover:bg-brandOrange hover:text-white transition-colors h-full">CONTACT US</a>
                 
-                <div class="flex items-center ml-3">
+                <div class="flex items-center gap-2 ml-3">
+                    <!-- French Translation Button (Desktop) -->
+                    <button onclick="triggerFrenchTranslation()" title="Traduire en Français" class="px-2.5 py-1.5 rounded bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-brandOrange hover:text-white transition-all text-xs font-bold uppercase">
+                        FR
+                    </button>
+                    <!-- Dark Mode Toggle -->
                     <button class="theme-toggle-btn p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all focus:outline-none">
                         <i class="theme-icon fa-solid fa-moon text-gray-600 dark:text-gray-300"></i>
                     </button>
                 </div>
             </div>
 
-            <div class="lg:hidden flex items-center gap-4">
+            <div class="lg:hidden flex items-center gap-2">
+                <!-- Mobile French Translation Button -->
+                <button onclick="triggerFrenchTranslation()" class="px-2 py-1 rounded bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-bold uppercase">
+                    FR
+                </button>
                 <button class="theme-toggle-btn p-2 rounded-full bg-gray-100 dark:bg-gray-800 focus:outline-none">
                     <i class="theme-icon fa-solid fa-moon text-gray-600 dark:text-gray-300"></i>
                 </button>
@@ -100,8 +109,21 @@
                 <a href="index.html#dental" class="mobile-link text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-brandOrange py-2">Perio & Surgery</a>
             </div>
 
-            <a href="clients.html" class="mobile-link block px-4 py-3 text-sm font-bold uppercase text-gray-900 dark:text-white hover:text-brandOrange">CLIENTS</a>
+            <a href="clients.html" class="mobile-link block px-4 py-3 text-sm font-bold uppercase text-brandOrange">CLIENTS</a>
             <a href="contact.html" class="mobile-link block px-4 py-3 text-sm font-bold uppercase text-gray-900 dark:text-white hover:text-brandOrange">CONTACT US</a>
         </div>
     </div>
 </nav>
+
+<!-- Off-screen Google Translate Container -->
+<div id="google_translate_element" style="position: absolute; top: -9999px; left: -9999px; overflow: hidden; height: 0;"></div>
+
+<!-- Loader Hack: Forces the browser to load your external translation.js file -->
+<img src="dummy" style="display:none;" onerror="
+    if(!document.getElementById('my-translation-logic')) {
+        let s = document.createElement('script');
+        s.id = 'my-translation-logic';
+        s.src = 'translation.js';
+        document.body.appendChild(s);
+    }
+">
