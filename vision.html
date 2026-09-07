@@ -49,6 +49,11 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- EN/FR translation -->
+    <link rel="stylesheet" href="translate-widget.css">
+    <script src="translate-widget.js"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <style>
         body { font-family: 'Poppins', sans-serif; }
         ::-webkit-scrollbar { width: 8px; }
@@ -100,71 +105,11 @@
 
      <!-- TEMP NAVIGATION BAR -->
   <nav class="fixed w-full z-50 bg-white/95 dark:bg-darkNav/95 backdrop-blur-lg shadow-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div id="google_translate_element" class="hidden"></div>
         <div id="navbar-placeholder"></div>
     </nav>
     <!-- END TEMP NAVIGATION BAR -->
-
-    <!-- UNIVERSAL NAVIGATION BAR -->
-<script>
-    fetch('navbar.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('navbar-placeholder').innerHTML = data;
-
-            // Re-bind Mobile Menu & Dark Mode logic after injection
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileBtn && mobileMenu) {
-                const mobileMenuIcon = mobileBtn.querySelector('i');
-                const mobileLinks = document.querySelectorAll('.mobile-link');
-                const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
-
-                mobileBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                    mobileMenuIcon.classList.toggle('fa-bars');
-                    mobileMenuIcon.classList.toggle('fa-xmark');
-                });
-
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenuIcon.classList.remove('fa-xmark');
-                        mobileMenuIcon.classList.add('fa-bars');
-                    });
-                });
-
-                mobileDropdownBtns.forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const content = this.nextElementSibling;
-                        const icon = this.querySelector('i.fa-caret-down');
-                        content.classList.toggle('hidden');
-                        content.classList.toggle('flex');
-                        icon.style.transform = content.classList.contains('hidden') ? "rotate(0deg)" : "rotate(180deg)";
-                    });
-                });
-            }
-
-            // Theme Toggle Re-bind
-            const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
-            const themeIcons = document.querySelectorAll('.theme-icon');
-            function updateIcons() {
-                const isDark = document.documentElement.classList.contains('dark');
-                themeIcons.forEach(icon => {
-                    icon.classList.remove(isDark ? 'fa-moon' : 'fa-sun');
-                    icon.classList.add(isDark ? 'fa-sun' : 'fa-moon');
-                });
-            }
-            updateIcons();
-            themeToggleBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.documentElement.classList.toggle('dark');
-                    localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-                    updateIcons();
-                });
-            });
-        });
-</script>
- <!-- END UNIVERSAL NAVIGATION BAR -->
+    <script src="nav-loader.js"></script>
 
     <div class="pt-32 pb-16 bg-brandBlue text-white relative overflow-hidden text-center">
         <div class="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent"></div>

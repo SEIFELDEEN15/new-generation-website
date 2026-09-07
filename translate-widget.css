@@ -1,0 +1,21 @@
+/* Hide Google's default translate banner/highlighting — we drive translation
+   with our own FR/EN button instead. */
+#google_translate_element,
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.skiptranslate,
+.goog-te-gadget-icon {
+    display: none !important;
+}
+body {
+    top: 0 !important;
+    position: static !important;
+}
+.goog-text-highlight {
+    background: none !important;
+    box-shadow: none !important;
+}
+.goog-tooltip,
+.goog-tooltip:hover {
+    display: none !important;
+}
