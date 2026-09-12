@@ -1,61 +1,117 @@
-// Loads the shared navbar.html into #navbar-placeholder and re-binds the
-// mobile menu + dark mode toggle logic once it's injected. Included via
-// <script src="nav-loader.js"></script> on every page.
+(function () {
+    const NAVBAR_CACHE_KEY = 'cached_navbar_html_v1';
+    let cachedHTML = sessionStorage.getItem(NAVBAR_CACHE_KEY);
 
-fetch('navbar.html')
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('navbar-placeholder').innerHTML = data;
+    // Start fetching IMMEDIATELY on script execution (parallel network request)
+    let fetchPromise = !cachedHTML ? fetch('navbar.html').then(r => r.ok ? r.text() : '').catch(() => '') : null;
 
-        // Re-bind Mobile Menu & Dark Mode logic after injection
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileBtn && mobileMenu) {
-            const mobileMenuIcon = mobileBtn.querySelector('i');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
-            const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
-
-            mobileBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenuIcon.classList.toggle('fa-bars');
-                mobileMenuIcon.classList.toggle('fa-xmark');
-            });
-
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenuIcon.classList.remove('fa-xmark');
-                    mobileMenuIcon.classList.add('fa-bars');
-                });
-            });
-
-            mobileDropdownBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const content = this.nextElementSibling;
-                    const icon = this.querySelector('i.fa-caret-down');
-                    content.classList.toggle('hidden');
-                    content.classList.toggle('flex');
-                    icon.style.transform = content.classList.contains('hidden') ? "rotate(0deg)" : "rotate(180deg)";
-                });
-            });
-        }
-
-        // Theme Toggle Re-bind
-        const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
+    function initNavbarFunctionality() {
+        const themeToggles = document.querySelectorAll('.theme-toggle-btn');
         const themeIcons = document.querySelectorAll('.theme-icon');
-        function updateIcons() {
-            const isDark = document.documentElement.classList.contains('dark');
+
+        function updateIcons(isDark) {
             themeIcons.forEach(icon => {
-                icon.classList.remove(isDark ? 'fa-moon' : 'fa-sun');
-                icon.classList.add(isDark ? 'fa-sun' : 'fa-moon');
+                if (isDark) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
             });
         }
-        updateIcons();
-        themeToggleBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.documentElement.classList.toggle('dark');
-                localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-                updateIcons();
+
+        updateIcons(document.documentElement.classList.contains('dark'));
+
+        themeToggles.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const willBeDark = !document.documentElement.classList.contains('dark');
+                if (willBeDark) {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                }
+                updateIcons(willBeDark);
             });
         });
-    });
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-xmark');
+                }
+            });
+        }
+
+        const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
+        mobileDropdownBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const content = btn.nextElementSibling;
+                const caret = btn.querySelector('.fa-caret-down');
+                if (content) {
+                    content.classList.toggle('hidden');
+                    content.classList.toggle('flex');
+                }
+                if (caret) {
+                    caret.classList.toggle('rotate-180');
+                }
+            });
+        });
+
+        const langBtns = document.querySelectorAll('.lang-toggle-btn');
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (typeof window.toggleLanguage === 'function') {
+                    window.toggleLanguage();
+                }
+            });
+        });
+    }
+
+    function inject(html) {
+        const placeholder = document.getElementById('navbar-placeholder');
+        if (placeholder) {
+            placeholder.innerHTML = html;
+            initNavbarFunctionality();
+            return true;
+        }
+        return false;
+    }
+
+    function tryMount(html) {
+        if (inject(html)) return;
+        // If placeholder DOM element isn't ready yet, observe until it appears
+        const observer = new MutationObserver(() => {
+            if (inject(html)) observer.disconnect();
+        });
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+    }
+
+    // 1. If we have cache, render instantly (0ms)
+    if (cachedHTML) {
+        tryMount(cachedHTML);
+        // Refresh cache in background
+        fetch('navbar.html').then(r => r.ok ? r.text() : '').then(fresh => {
+            if (fresh && fresh !== cachedHTML) sessionStorage.setItem(NAVBAR_CACHE_KEY, fresh);
+        }).catch(() => {});
+    } else if (fetchPromise) {
+        // 2. If first visit, mount the millisecond the fetch completes
+        fetchPromise.then(html => {
+            if (html) {
+                sessionStorage.setItem(NAVBAR_CACHE_KEY, html);
+                tryMount(html);
+            }
+        });
+    }
+})();

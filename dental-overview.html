@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Supplies Overview - New Gen</title>
+    <!-- Immediate Theme Check to avoid white flash on load -->
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <!-- Fast Navbar Loader directly in HEAD -->
+    <script src="nav-loader.js"></script>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Translate Banner Cleaner -->
+    <link rel="stylesheet" href="translate-widget.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandOrange: '#f97316',
+                        darkNav: '#111827'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300 antialiased selection:bg-brandOrange selection:text-white">
+
+    <!-- Universal Navbar Mount Point -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section: Fully Adaptive Light & Dark Mode -->
+    <section class="relative pt-28 pb-16 lg:pt-36 lg:pb-24 bg-white dark:bg-slate-950 text-gray-900 dark:text-white overflow-hidden border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Overview Copy -->
+                <div class="lg:col-span-7 z-10">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-gray-900 dark:text-white">
+                        Advanced <span class="text-brandOrange">Dental Supplies</span> & Clinical Solutions
+                    </h1>
+                    <p class="mt-6 text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
+                        At New Generation, our specialized dental division supplies clinicians, practices, and hospitals throughout Egypt with high-grade consumables, premium restorative polymers, precision endodontic tools, and complete surgical implant suites.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="#categories" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-7 py-3 rounded-lg shadow-lg shadow-brandOrange/25 transition-all">
+                            View Our Lines
+                        </a>
+                        <a href="contact.html" class="bg-gray-100 hover:bg-gray-200 text-gray-800 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white font-bold px-7 py-3 rounded-lg border border-gray-300 dark:border-white/20 transition-all">
+                            Contact Specialist
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Auto Carousel Slider -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative h-72 sm:h-80 md:h-96 w-full rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700/60 shadow-xl bg-gray-100 dark:bg-gray-950">
+                        <div id="hero-carousel" class="relative w-full h-full">
+                            <div class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
+                                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80" alt="Clinical Dental Suite" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                                <span class="absolute bottom-4 left-4 text-xs font-semibold uppercase tracking-wider text-white bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">Clinical Equipment</span>
+                            </div>
+                            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+                                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=900&q=80" alt="Dental Restorative Instruments" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                                <span class="absolute bottom-4 left-4 text-xs font-semibold uppercase tracking-wider text-white bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">Precision Instruments</span>
+                            </div>
+                            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+                                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80" alt="Dental Operatory Setup" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                                <span class="absolute bottom-4 left-4 text-xs font-semibold uppercase tracking-wider text-white bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">Advanced Materials</span>
+                            </div>
+                        </div>
+
+                        <!-- Carousel Indicators -->
+                        <div class="absolute bottom-4 right-4 flex items-center gap-2 z-20">
+                            <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-brandOrange transition-all" onclick="setSlide(0)"></button>
+                            <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white/90 transition-all" onclick="setSlide(1)"></button>
+                            <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white/90 transition-all" onclick="setSlide(2)"></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold tracking-tight mb-3 text-gray-900 dark:text-white">Our 7 Dental Categories</h2>
+            <div class="w-20 h-1 bg-brandOrange mx-auto mb-4"></div>
+            <p class="text-gray-600 dark:text-gray-400 max-w-xl mx-auto text-sm">
+                Explore specialized materials and instruments designed for precision clinical workflows.
+            </p>
+        </div>
+
+        <div class="space-y-12">
+            <!-- Row 1: 4 Categories -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- 1. Bona-aid™ (Blue) -->
+                <div id="bona-aid" class="relative bg-white dark:bg-gray-800 rounded-2xl p-6 pt-11 text-center shadow-md dark:shadow-xl border border-gray-200/80 dark:border-gray-700/60 border-t-4 !border-t-blue-500 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 bg-white dark:bg-gray-900 rounded-full border-4 border-blue-500 flex items-center justify-center text-blue-600 dark:text-blue-400 shadow-md">
+                        <i class="fa-solid fa-flask text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Bona-aid™</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                            Intraoral wound patch protecting extraction, implant, and ulcer sites with accelerated healing.
+                        </p>
+                    </div>
+                    <a href="bona-aid.html" class="inline-block w-full py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow">
+                        Bona-aid™
+                    </a>
+                </div>
+
+                <!-- 2. Restorative (Red) -->
+                <div id="restorative" class="relative bg-white dark:bg-gray-800 rounded-2xl p-6 pt-11 text-center shadow-md dark:shadow-xl border border-gray-200/80 dark:border-gray-700/60 border-t-4 !border-t-red-500 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 bg-white dark:bg-gray-900 rounded-full border-4 border-red-500 flex items-center justify-center text-red-600 dark:text-red-400 shadow-md">
+                        <i class="fa-solid fa-tooth text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Restorative</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                            EZ-Shine polishing paste, Kerr Herculite Classic kit, and Mediclus Any-Com nanohybrid composite.
+                        </p>
+                    </div>
+                    <a href="restorative.html" class="inline-block w-full py-2.5 rounded-lg bg-red-600 hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow">
+                        Restorative
+                    </a>
+                </div>
+
+                <!-- 3. Endodontics (Green) -->
+                <div id="endodontics" class="relative bg-white dark:bg-gray-800 rounded-2xl p-6 pt-11 text-center shadow-md dark:shadow-xl border border-gray-200/80 dark:border-gray-700/60 border-t-4 !border-t-emerald-500 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 bg-white dark:bg-gray-900 rounded-full border-4 border-emerald-500 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-md">
+                        <i class="fa-solid fa-syringe text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Endodontics</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                            Meta Biomed ADSEAL root canal resin sealer, Nexobio T-SEAL, and Mediclus Dentto-Dam™.
+                        </p>
+                    </div>
+                    <a href="endodontics.html" class="inline-block w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow">
+                        Endodontics
+                    </a>
+                </div>
+
+                <!-- 4. Orthodontics (Cyan) -->
+                <div id="orthodontics" class="relative bg-white dark:bg-gray-800 rounded-2xl p-6 pt-11 text-center shadow-md dark:shadow-xl border border-gray-200/80 dark:border-gray-700/60 border-t-4 !border-t-cyan-500 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 bg-white dark:bg-gray-900 rounded-full border-4 border-cyan-500 flex items-center justify-center text-cyan-600 dark:text-cyan-400 shadow-md">
+                        <i class="fa-solid fa-network-wired text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Orthodontics</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                            BMS Italgin chromatic alginate, C-Type autoclavable cheek retractors, and silicone mouth props.
+                        </p>
+                    </div>
+                    <a href="orthodontics.html" class="inline-block w-full py-2.5 rounded-lg bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow">
+                        Orthodontics
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Row 2: 3 Centered Categories with Identical Width -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+                <!-- 5. Implant (Brand Orange) -->
+                <div id="implant" class="relative bg-white dark:bg-gray-800 rounded-2xl p-6 pt-11 text-center shadow-md dark:shadow-xl border border-gray-200/80 dark:border-gray-700/60 border-t-4 !border-t-brandOrange flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 bg-white dark:bg-gray-900 rounded-full border-4 border-brandOrange flex items-center justify-center text-brandOrange shadow-md">
+                        <i class="fa-solid fa-screwdriver text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Implant</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                            COXO C-Sailor-Pro implant motors, micro motor systems, and Coxo C-PUMA electric motors.
+                        </p>
+                    </div>
+                    <a href="implant.html" class="inline-block w-full py-2.5 rounded-lg bg-brandOrange hover:bg-orange-600 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow">
+                        Implant
+                    </a>
+                </div>
+
+                <!-- 6. Prosthetics (Purple) -->
+                <div id="prosthetics" class="relative bg-white dark:bg-gray-800 rounded-2xl p-6 pt-11 text-center shadow-md dark:shadow-xl border border-gray-200/80 dark:border-gray-700/60 border-t-4 !border-t-purple-500 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                    <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 bg-white dark:bg-gray-900 rounded-full border-4 border-purple-500 flex items-center justify-center text-purple-600 dark:text-purple-400 shadow-md">
+                        <i class="fa-solid fa-teeth text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Prosthetics</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                            Acrostone soft relining material, Lascod Silaxil condensation silicone kits, and dental torches.
+                        </p>
+                    </div>
+                    <a href="prosthetics.html" class="inline-block w-full py-2.5 rounded-lg bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow">
+                        Prosthetics
+                    </a>
+                </div>
+
+                <!-- 7. Perio & Surgery (Rose) -->
+                <div id="perio-surgery" class="relative bg-white dark:bg-gray-800 rounded-2xl p-6 pt-11 text-center shadow-md dark:shadow-xl border border-gray-200/80 dark:border-gray-700/60 border-t-4 !border-t-rose-500 flex flex-col justify-between hover:-translate-y-1 hover:shadow-xl transition-all duration-300 sm:col-span-2 lg:col-span-1">
+                    <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 bg-white dark:bg-gray-900 rounded-full border-4 border-rose-500 flex items-center justify-center text-rose-600 dark:text-rose-400 shadow-md">
+                        <i class="fa-solid fa-kit-medical text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Perio & Surgery</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                            PREVEST Alvocure dry socket paste, EZ-Care periodontal local delivery, and Gama Dent ALVOGYL.
+                        </p>
+                    </div>
+                    <a href="perio-surgery.html" class="inline-block w-full py-2.5 rounded-lg bg-rose-600 hover:bg-rose-700 dark:bg-rose-500 dark:hover:bg-rose-600 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow">
+                        Perio & Surgery
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Required Translation Mount Point -->
+    <div id="google_translate_element" style="display:none;"></div>
+
+    <!-- Background Translation Scripts -->
+    <script src="translate-widget.js"></script>
+    <script async src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Hero Carousel Controller Script -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('opacity-100', i === index);
+                slide.classList.toggle('opacity-0', i !== index);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('bg-brandOrange', i === index);
+                dot.classList.toggle('bg-white/50', i !== index);
+            });
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+
+        function setSlide(index) {
+            clearInterval(slideInterval);
+            showSlide(index);
+            slideInterval = setInterval(nextSlide, 4500);
+        }
+
+        slideInterval = setInterval(nextSlide, 4500);
+    </script>
+</body>
+</html>

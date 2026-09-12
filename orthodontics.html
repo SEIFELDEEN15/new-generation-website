@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orthodontics - New Gen</title>
+    <!-- Immediate Theme Check to avoid white flash on load -->
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <!-- Fast Navbar Loader directly in HEAD -->
+    <script src="nav-loader.js"></script>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Translate Banner Cleaner -->
+    <link rel="stylesheet" href="translate-widget.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandOrange: '#f97316',
+                        darkNav: '#111827'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300 antialiased selection:bg-brandOrange selection:text-white">
+
+    <!-- Universal Navbar Mount Point -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Header Section with Glow Backdrop -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-24 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white overflow-hidden border-b border-gray-800 text-center">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brandOrange/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-2 drop-shadow-sm">
+                Our Products
+            </h1>
+            <p class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-brandOrange drop-shadow-sm">
+                Orthodontics
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-32">
+
+        <!-- Product 1: BMS Italgin Chromatic Alginate -->
+        <section class="space-y-12">
+            <div class="text-center">
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+                    BMS Italgin Chromatic Alginate
+                </h2>
+                <div class="w-20 h-1.5 bg-brandOrange mx-auto mt-4 rounded-full shadow-sm"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Text Left Inside Styled Glass Card -->
+                <div class="lg:col-span-6 bg-white dark:bg-gray-800/90 rounded-3xl p-8 sm:p-10 shadow-xl border border-gray-200/80 dark:border-gray-700/60 backdrop-blur-sm relative overflow-hidden group hover:border-brandOrange/40 transition-all duration-300">
+                    <div class="absolute -right-16 -top-16 w-36 h-36 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <div class="space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed text-lg sm:text-xl">
+                        <p>
+                            <strong class="text-gray-900 dark:text-white font-bold">BMS Italgin Chromatic Alginate</strong> ITALGIN is a chromatic alginate for high precision impressions with high elasticity and resistance to tear. Lead and cadmium free. Thanks to the chromatic phase indicator, preparation of the impression is greatly simplified, regardless the environmental conditions (including temperature/hardness of water) in which you are working.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Picture 1 Right: Styled Image Frame -->
+                <div class="lg:col-span-6 flex justify-center">
+                    <div class="relative w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl border-2 border-gray-200 dark:border-gray-700/80 bg-white dark:bg-gray-800 p-2 group hover:shadow-brandOrange/10 transition-all duration-500">
+                        <div class="overflow-hidden rounded-2xl">
+                            <img src="pics/Ortho-1.jpg" alt="BMS Italgin Chromatic Alginate" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product 2: Cheek Retractor C Type (2pcs) -->
+        <section class="space-y-12">
+            <div class="text-center">
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+                    Cheek Retractor C Type (2pcs)
+                </h2>
+                <div class="w-20 h-1.5 bg-brandOrange mx-auto mt-4 rounded-full shadow-sm"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Picture 2 Left: Styled Image Frame -->
+                <div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
+                    <div class="relative w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl border-2 border-gray-200 dark:border-gray-700/80 bg-white dark:bg-gray-800 p-2 group hover:shadow-brandOrange/10 transition-all duration-500">
+                        <div class="overflow-hidden rounded-2xl">
+                            <img src="pics/Ortho-2.jpg" alt="Cheek Retractor C Type (2pcs)" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Right Inside Styled Glass Card -->
+                <div class="lg:col-span-6 bg-white dark:bg-gray-800/90 rounded-3xl p-8 sm:p-10 shadow-xl border border-gray-200/80 dark:border-gray-700/60 backdrop-blur-sm space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed text-lg sm:text-xl order-1 lg:order-2 relative overflow-hidden group hover:border-brandOrange/40 transition-all duration-300">
+                    <div class="absolute -right-16 -top-16 w-36 h-36 bg-blue-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <div class="space-y-4">
+                        <p>
+                            <strong class="text-gray-900 dark:text-white font-bold">Cheek Retractor C Type (2pcs)</strong> Autoclavable Box 2 pcs
+                        </p>
+                        <p class="pt-2 font-semibold text-gray-900 dark:text-white">
+                            Made in China
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product 3: Mouth Prop Bite Block -->
+        <section class="space-y-12">
+            <div class="text-center">
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+                    Mouth Prop Bite Block
+                </h2>
+                <div class="w-20 h-1.5 bg-brandOrange mx-auto mt-4 rounded-full shadow-sm"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Text Left Inside Styled Glass Card -->
+                <div class="lg:col-span-6 bg-white dark:bg-gray-800/90 rounded-3xl p-8 sm:p-10 shadow-xl border border-gray-200/80 dark:border-gray-700/60 backdrop-blur-sm space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed text-lg sm:text-xl relative overflow-hidden group hover:border-brandOrange/40 transition-all duration-300">
+                    <div class="absolute -right-16 -top-16 w-36 h-36 bg-purple-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <div class="space-y-4">
+                        <p>
+                            <strong class="text-gray-900 dark:text-white font-bold">Mouth Prop Bite Block</strong> A mouth prop is a wedge-shaped implement used in dentistry for dentists working with children and other patients who have difficulty keeping their mouths open wide and steady during a procedure, or during procedures where the patient is sedated.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Picture 3 Right: Styled Image Frame -->
+                <div class="lg:col-span-6 flex justify-center">
+                    <div class="relative w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl border-2 border-gray-200 dark:border-gray-700/80 bg-white dark:bg-gray-800 p-2 group hover:shadow-brandOrange/10 transition-all duration-500">
+                        <div class="overflow-hidden rounded-2xl">
+                            <img src="pics/Ortho-3.jpg" alt="Mouth Prop Bite Block" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Buttons -->
+        <div class="pt-8 flex justify-center gap-5">
+            <a href="dental-overview.html" class="inline-flex items-center gap-2.5 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold px-8 py-4 rounded-xl text-base transition-all shadow-sm hover:shadow">
+                <i class="fa-solid fa-arrow-left"></i> Back to Dental Overview
+            </a>
+            <a href="contact.html" class="inline-flex items-center gap-2.5 bg-brandOrange hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl text-base shadow-lg shadow-brandOrange/25 transition-all hover:shadow-xl">
+                Contact Us <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Required Translation Mount Point -->
+    <div id="google_translate_element" style="display:none;"></div>
+
+    <!-- Background Translation Scripts -->
+    <script src="translate-widget.js"></script>
+    <script async src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

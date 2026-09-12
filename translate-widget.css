@@ -1,21 +1,87 @@
-/* Hide Google's default translate banner/highlighting — we drive translation
-   with our own FR/EN button instead. */
-#google_translate_element,
-.goog-te-banner-frame,
-.goog-te-banner-frame.skiptranslate,
-iframe.skiptranslate,
-.goog-te-gadget-icon {
+/* Hide Google Translate Banner Frame */
+.goog-te-banner-frame {
     display: none !important;
+    visibility: hidden !important;
 }
+
+body {
+    top: 0 !important;
+}
+
+/* Completely disable Google Translate tooltips and popups */
+.goog-tooltip {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.goog-tooltip:hover {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Remove background highlights and styling applied to translated text */
+.goog-text-highlight {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Prevent translation wrapper spans from showing hover states */
+font {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Hide the Google Translate top banner iframe completely */
+.goog-te-banner-frame, 
+.skiptranslate iframe {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+}
+
+/* Stop Google Translate from pushing the website body down */
 body {
     top: 0 !important;
     position: static !important;
 }
-.goog-text-highlight {
-    background: none !important;
-    box-shadow: none !important;
-}
-.goog-tooltip,
-.goog-tooltip:hover {
+
+/* Hide the floating Google Translate widget badge if it appears */
+.goog-te-gadget {
     display: none !important;
+}
+
+/* Force hide any Google Translate hover popup tooltips */
+.goog-tooltip, 
+.goog-tooltip div, 
+.goog-tooltip table {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Disable pointer events on translated highlights so hovering never triggers the card */
+.goog-text-highlight {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    pointer-events: none !important;
+}
+
+/* Also disable pointer events on the wrapper tags Google injects around
+   translated words -- the "Original text" hover card is triggered from
+   these, not just from .goog-text-highlight itself. */
+font, .goog-text-highlight * {
+    pointer-events: none !important;
+}
+
+/* The "Original text" hover/click card itself. Google gives it a stable
+   element id (goog-gt-tt) even though its CSS classes change between
+   builds, so target it by id. */
+#goog-gt-tt,
+.goog-te-balloon-frame {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }

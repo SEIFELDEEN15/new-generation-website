@@ -17,20 +17,16 @@ function currentLang() {
 }
 
 function setSiteLanguage(lang) {
-    // Persist the choice so it carries across page navigations on this multi-page site.
-    document.cookie = 'googtrans=/en/' + lang + ';path=/;max-age=31536000';
-
-    var tries = 0;
-    var interval = setInterval(function () {
-        var select = document.querySelector('.goog-te-combo');
-        if (select) {
-            clearInterval(interval);
-            select.value = lang;
-            select.dispatchEvent(new Event('change'));
-        } else if (++tries > 40) {
-            clearInterval(interval); // Google widget failed to load; give up quietly.
-        }
-    }, 150);
+    // Toggling the live Google dropdown repeatedly (en -> fr -> en -> fr ...)
+    // leaves Google's widget in a broken internal state after the first
+    // revert. Setting the cookie and reloading is the reliable path --
+    // Google's widget reads this cookie fresh on every page load.
+    if (lang === 'en') {
+        document.cookie = 'googtrans=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
+    } else {
+        document.cookie = 'googtrans=/en/' + lang + ';path=/;max-age=31536000';
+    }
+    location.reload();
 }
 
 function updateLangButtons(lang) {
@@ -46,6 +42,11 @@ function hideGoogleBanner() {
     var banner = document.querySelector('.goog-te-banner-frame');
     if (banner) banner.style.display = 'none';
     document.body.style.top = '0px';
+
+    // Also nuke the "Original text" hover/click card Google shows when you
+    // interact with translated text.
+    var tooltip = document.getElementById('goog-gt-tt');
+    if (tooltip) tooltip.style.display = 'none';
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -71,6 +72,5 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!btn) return;
         var target = btn.dataset.target || 'fr';
         setSiteLanguage(target);
-        updateLangButtons(target);
     });
 });
