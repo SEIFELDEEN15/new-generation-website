@@ -26,6 +26,8 @@
         themeToggles.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopImmediatePropagation(); // Stops duplicate toggling from old scripts
+                
                 const willBeDark = !document.documentElement.classList.contains('dark');
                 if (willBeDark) {
                     document.documentElement.classList.add('dark');
@@ -43,6 +45,8 @@
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopImmediatePropagation(); // Stops duplicate toggling from old scripts
+                
                 mobileMenu.classList.toggle('hidden');
                 const icon = mobileMenuBtn.querySelector('i');
                 if (icon) {
@@ -56,6 +60,8 @@
         mobileDropdownBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopImmediatePropagation(); // Stops duplicate toggling
+                
                 const content = btn.nextElementSibling;
                 const caret = btn.querySelector('.fa-caret-down');
                 if (content) {
@@ -68,6 +74,25 @@
             });
         });
 
+        // Ensure clicking links closes the mobile menu cleanly
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if(!link.classList.contains('mobile-dropdown-btn')) {
+                    e.stopImmediatePropagation();
+                    if (mobileMenu) mobileMenu.classList.add('hidden');
+                    if (mobileMenuBtn) {
+                        const icon = mobileMenuBtn.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-xmark');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                }
+            });
+        });
+
+        // FIXED: Removed stopImmediatePropagation so translate-widget.js can hear the click
         const langBtns = document.querySelectorAll('.lang-toggle-btn');
         langBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {

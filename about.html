@@ -36,12 +36,10 @@
     </script>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- EN/FR translation -->
+    <!-- EN/FR translation widget styles & scripts -->
     <link rel="stylesheet" href="translate-widget.css">
     <script src="translate-widget.js"></script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -59,12 +57,11 @@
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-darkBg dark:text-gray-200 transition-colors duration-300">
 
-     <!-- TEMP NAVIGATION BAR -->
-  <nav class="fixed w-full z-50 bg-white/95 dark:bg-darkNav/95 backdrop-blur-lg shadow-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+     <!-- NAVIGATION BAR -->
+    <nav class="fixed w-full z-50 bg-white/95 dark:bg-darkNav/95 backdrop-blur-lg shadow-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
         <div id="google_translate_element" class="hidden"></div>
         <div id="navbar-placeholder"></div>
     </nav>
-    <!-- END TEMP NAVIGATION BAR -->
     <script src="nav-loader.js"></script>
 
     <!-- GOALS HEADER -->
@@ -76,6 +73,7 @@
         </div>
     </div>
 
+    <!-- MAIN SECTION -->
     <section id="about" class="pt-24 pb-24 bg-gray-50 dark:bg-darkBg min-h-[60vh] transition-colors duration-300 flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             
@@ -209,6 +207,7 @@
     <script>
         AOS.init({ once: true, offset: 50, duration: 800 });
 
+        // --- About Us Slideshow Script ---
         const aboutSlides = document.querySelectorAll('.about-slide');
         const aboutDots = document.querySelectorAll('.about-dot');
         let currentAboutSlide = 0;
@@ -252,60 +251,77 @@
             });
         }
 
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuIcon = mobileBtn.querySelector('i');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
-
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if(mobileMenu.classList.contains('hidden')) {
-                mobileMenuIcon.classList.remove('fa-xmark');
-                mobileMenuIcon.classList.add('fa-bars');
-            } else {
-                mobileMenuIcon.classList.remove('fa-bars');
-                mobileMenuIcon.classList.add('fa-xmark');
-            }
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenuIcon.classList.remove('fa-xmark');
-                mobileMenuIcon.classList.add('fa-bars');
-            });
-        });
-
-        mobileDropdownBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const content = this.nextElementSibling;
-                const icon = this.querySelector('i.fa-caret-down');
-                content.classList.toggle('hidden');
-                content.classList.toggle('flex');
-                icon.style.transform = content.classList.contains('hidden') ? "rotate(0deg)" : "rotate(180deg)";
-            });
-        });
-
+        // --- Theme & Navbar Event Delegation Script ---
         const html = document.documentElement;
-        const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
-        const themeIcons = document.querySelectorAll('.theme-icon');
 
         function updateIcons() {
             const isDark = html.classList.contains('dark');
-            themeIcons.forEach(icon => {
+            document.querySelectorAll('.theme-icon').forEach(icon => {
                 icon.classList.remove(isDark ? 'fa-moon' : 'fa-sun');
                 icon.classList.add(isDark ? 'fa-sun' : 'fa-moon');
             });
         }
 
+        // Run initially to set the correct icon based on local storage
         updateIcons();
-        themeToggleBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
+
+        // Listen for all clicks on the page, delegating behavior for dynamically loaded navbar buttons
+        document.addEventListener('click', (e) => {
+            
+            // 1. Theme Toggle Logic
+            const themeBtn = e.target.closest('.theme-toggle-btn');
+            if (themeBtn) {
                 html.classList.toggle('dark');
                 localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
                 updateIcons();
-            });
+                return;
+            }
+
+            // 2. Mobile Menu Hamburger Toggle Logic
+            const mobileBtn = e.target.closest('#mobile-menu-btn');
+            if (mobileBtn) {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const mobileMenuIcon = mobileBtn.querySelector('i');
+                if (mobileMenu && mobileMenuIcon) {
+                    mobileMenu.classList.toggle('hidden');
+                    if(mobileMenu.classList.contains('hidden')) {
+                        mobileMenuIcon.classList.remove('fa-xmark');
+                        mobileMenuIcon.classList.add('fa-bars');
+                    } else {
+                        mobileMenuIcon.classList.remove('fa-bars');
+                        mobileMenuIcon.classList.add('fa-xmark');
+                    }
+                }
+                return;
+            }
+
+            // 3. Mobile Menu Link Click Logic (Closes menu)
+            const mobileLink = e.target.closest('.mobile-link');
+            if (mobileLink) {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                if (mobileMenu && mobileMenuBtn) {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-xmark');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+                return;
+            }
+
+            // 4. Mobile Menu Dropdown Accordion Logic
+            const dropdownBtn = e.target.closest('.mobile-dropdown-btn');
+            if (dropdownBtn) {
+                const content = dropdownBtn.nextElementSibling;
+                const icon = dropdownBtn.querySelector('i.fa-caret-down');
+                if (content && icon) {
+                    content.classList.toggle('hidden');
+                    content.classList.toggle('flex');
+                    icon.style.transform = content.classList.contains('hidden') ? "rotate(0deg)" : "rotate(180deg)";
+                }
+            }
         });
     </script>
 </body>
