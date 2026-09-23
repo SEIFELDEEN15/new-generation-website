@@ -6,8 +6,9 @@
     <title>Contact Us | New Generation</title>
     
     <!-- Dark Mode FOUC Prevention -->
-    <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  <script>
+        // Defaults to light mode unless the user explicitly toggled dark mode previously
+        if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark');

@@ -1,7 +1,9 @@
+<!-- navbar.html -->
 <nav class="fixed w-full z-50 bg-white/95 dark:bg-darkNav/95 backdrop-blur-lg shadow-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
-            <!-- Brand Logo -->
+            
+            <!-- BRAND LOGO -->
             <a href="index.html" class="flex items-center">
                 <img src="pics/logo.png" alt="New Generation Logo" class="h-12 sm:h-14 w-auto object-contain dark:invert transition-all duration-300">
             </a>
@@ -23,16 +25,32 @@
 
                 <a href="services.html" class="flex items-center px-3 text-sm font-bold uppercase text-gray-700 dark:text-blue-300 hover:bg-brandOrange hover:text-white transition-colors h-full">SERVICES</a>
                 
+                <!-- DAIRY SUPPLIES DROPDOWN -->
                 <div class="group relative flex items-stretch cursor-pointer">
-                    <a href="index.html#dairysupplies" class="flex items-center gap-1 px-3 text-sm font-bold uppercase text-gray-700 dark:text-blue-300 hover:bg-brandOrange hover:text-white transition-colors h-full">
+                    <a href="dairy-overview.html" class="flex items-center gap-1 px-3 text-sm font-bold uppercase text-gray-700 dark:text-blue-300 hover:bg-brandOrange hover:text-white transition-colors h-full">
                         DAIRY SUPPLIES <i class="fa-solid fa-caret-down ml-1"></i>
                     </a>
-                    <div class="dropdown-menu hidden group-hover:block absolute top-full left-0 w-48 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow-xl border-t-2 border-brandOrange z-50">
-                        <a href="index.html#dairysupplies" class="block px-4 py-3 text-sm font-semibold hover:text-brandOrange hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">Overview</a>
+                    <div class="dropdown-menu hidden group-hover:block absolute top-full left-0 w-64 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow-xl border-t-2 border-brandOrange z-50">
+                        <a href="dairy-overview.html" class="block px-4 py-3 text-sm font-bold border-b-2 border-gray-100 dark:border-gray-700 hover:text-brandOrange hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">Overview</a>
+                        
+                        <!-- Industrial Group -->
+                        <div class="px-4 py-2 text-[10px] font-bold text-gray-400 uppercase tracking-wider bg-gray-50 dark:bg-gray-900/50">Industrial Supplies</div>
+                        <a href="bakery.html" class="block px-4 py-2.5 text-sm font-semibold border-b border-gray-100 dark:border-gray-700 hover:text-brandOrange hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors pl-6">Bakery</a>
+                        <a href="confectionary.html" class="block px-4 py-2.5 text-sm font-semibold border-b border-gray-100 dark:border-gray-700 hover:text-brandOrange hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors pl-6">Confectionary</a>
+                        <a href="dairy-industrial.html" class="block px-4 py-2.5 text-sm font-semibold border-b border-gray-100 dark:border-gray-700 hover:text-brandOrange hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors pl-6">Dairy</a>
+                        <a href="ice-cream.html" class="block px-4 py-2.5 text-sm font-semibold border-b border-gray-100 dark:border-gray-700 hover:text-brandOrange hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors pl-6">Ice Cream</a>
+                        
+                        <!-- Consumer Group -->
+                        <div class="px-4 py-2 text-[10px] font-bold text-gray-400 uppercase tracking-wider bg-gray-50 dark:bg-gray-900/50 border-t border-gray-100 dark:border-gray-700">Consumer Products</div>
+                        <a href="retail-powders.html" class="block px-4 py-2.5 text-sm font-semibold border-b border-gray-100 dark:border-gray-700 hover:text-brandOrange hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors pl-6">Retail Powders</a>
+                        <span class="block px-4 py-2.5 text-sm font-semibold border-b border-gray-100 dark:border-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed pl-6 flex justify-between items-center">
+                            Easy & Fast Baking Powders <span class="text-[9px] bg-brandOrange text-white px-2 py-0.5 rounded-full uppercase tracking-wider">Soon</span>
+                        </span>
+                        <a href="flavored-powders.html" class="block px-4 py-3 text-sm font-semibold hover:text-brandOrange hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors pl-6">Flavored Drinks Powder</a>
                     </div>
                 </div>
 
-                <!-- PRE-CONNECTED DENTAL SUPPLIES DROPDOWN -->
+                <!-- DENTAL SUPPLIES DROPDOWN -->
                 <div class="group relative flex items-stretch cursor-pointer">
                     <a href="dental-overview.html" class="flex items-center gap-1 px-3 text-sm font-bold uppercase text-gray-700 dark:text-blue-300 hover:bg-brandOrange hover:text-white transition-colors h-full">
                         DENTAL SUPPLIES <i class="fa-solid fa-caret-down ml-1"></i>
@@ -90,14 +108,26 @@
 
             <a href="services.html" class="mobile-link block px-4 py-3 text-sm font-bold uppercase text-gray-900 dark:text-white hover:text-brandOrange">SERVICES</a>
             
+            <!-- MOBILE DAIRY SUPPLIES -->
             <button class="mobile-dropdown-btn flex justify-between items-center w-full text-left px-4 py-3 text-sm font-bold uppercase text-gray-900 dark:text-white hover:text-brandOrange transition-colors">
                 DAIRY SUPPLIES <i class="fa-solid fa-caret-down transition-transform duration-300"></i>
             </button>
-            <div class="mobile-dropdown-content hidden flex-col pl-8 space-y-2 border-l-2 border-gray-200 dark:border-gray-700 ml-4">
-                <a href="index.html#dairysupplies" class="mobile-link text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-brandOrange py-2">Overview</a>
+            <div class="mobile-dropdown-content hidden flex-col pl-8 space-y-1 border-l-2 border-gray-200 dark:border-gray-700 ml-4">
+                <a href="dairy-overview.html" class="mobile-link text-sm font-bold text-gray-800 dark:text-gray-200 hover:text-brandOrange py-2 border-b border-gray-100 dark:border-gray-700/50">Overview</a>
+                
+                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider pt-3 pb-1">Industrial</div>
+                <a href="bakery.html" class="mobile-link text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-brandOrange py-1.5 pl-2">Bakery</a>
+                <a href="confectionary.html" class="mobile-link text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-brandOrange py-1.5 pl-2">Confectionary</a>
+                <a href="dairy-industrial.html" class="mobile-link text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-brandOrange py-1.5 pl-2">Dairy</a>
+                <a href="ice-cream.html" class="mobile-link text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-brandOrange py-1.5 pl-2 mb-1">Ice Cream</a>
+                
+                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider pt-3 pb-1 border-t border-gray-100 dark:border-gray-700/50">Consumer</div>
+                <a href="retail-powders.html" class="mobile-link text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-brandOrange py-1.5 pl-2">Retail Powders</a>
+                <span class="mobile-link block text-sm font-semibold text-gray-400 py-1.5 pl-2 cursor-not-allowed">Easy & Fast Baking Powders (Soon)</span>
+                <a href="flavored-powders.html" class="mobile-link text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-brandOrange py-1.5 pl-2 pb-3">Flavored Drinks Powder</a>
             </div>
 
-            <!-- PRE-CONNECTED MOBILE DENTAL DROPDOWN -->
+            <!-- MOBILE DENTAL SUPPLIES -->
             <button class="mobile-dropdown-btn flex justify-between items-center w-full text-left px-4 py-3 text-sm font-bold uppercase text-gray-900 dark:text-white hover:text-brandOrange transition-colors">
                 DENTAL SUPPLIES <i class="fa-solid fa-caret-down transition-transform duration-300"></i>
             </button>
@@ -112,7 +142,7 @@
                 <a href="perio-surgery.html" class="mobile-link text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-brandOrange py-2">Perio & Surgery</a>
             </div>
 
-            <a href="clients.html" class="mobile-link block px-4 py-3 text-sm font-bold uppercase text-brandOrange">CLIENTS</a>
+            <a href="clients.html" class="mobile-link block px-4 py-3 text-sm font-bold uppercase text-gray-900 dark:text-white hover:text-brandOrange">CLIENTS</a>
             <a href="contact.html" class="mobile-link block px-4 py-3 text-sm font-bold uppercase text-gray-900 dark:text-white hover:text-brandOrange">CONTACT US</a>
         </div>
     </div>
