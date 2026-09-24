@@ -1,4 +1,3 @@
-<!-- dairy-overview.html -->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -7,7 +6,6 @@
     <title>Dairy Supplies Overview | New Generation</title>
     
     <script>
-        // Defaults to light mode unless the user explicitly toggled dark mode previously
         if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark');
         } else {
@@ -71,7 +69,7 @@
                         Premium <span class="text-brandOrange">Dairy Supplies</span> & Food Ingredients
                     </h1>
                     <p class="text-gray-600 dark:text-gray-400 text-base sm:text-lg leading-relaxed max-w-2xl">
-                        At New Generation, we specialize in importing, exporting, and distributing high-grade dairy raw materials and functional ingredients across Egypt and the MENA region—fueling industrial production and quality retail brands.
+                        At New Generation, we specialize in importing, exporting, and distributing high-grade dairy raw materials, customized blends, and functional ingredients across Egypt and the MENA region—fueling industrial production and quality retail brands.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-2">
                         <a href="#industrial" class="px-7 py-3.5 rounded-xl bg-brandOrange text-white font-semibold shadow-lg hover:bg-orange-600 transition-all transform hover:-translate-y-0.5">
@@ -109,60 +107,61 @@
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">Our Industrial Supplies</h2>
                 <div class="w-20 h-1 bg-brandOrange mx-auto rounded-full mt-3 mb-4"></div>
                 <p class="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-                    High-performance milk powders, fats, and customized dairy formulations engineered for large-scale food manufacturing.
+                    High-performance milk powders, fats, fruit preparations, and customized dairy formulations engineered for large-scale food manufacturing.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- 5 Industrial Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
                 
                 <!-- 1. Bakery Card (Blue Accent) -->
-                <div class="relative bg-slate-50 dark:bg-[#111827] rounded-2xl p-7 pt-12 shadow-lg border border-gray-200 dark:border-blue-500/70 hover:border-blue-500 dark:hover:border-blue-400 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative bg-slate-50 dark:bg-[#111827] rounded-2xl p-6 pt-12 shadow-lg border border-gray-200 dark:border-blue-500/70 hover:border-blue-500 dark:hover:border-blue-400 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="100">
                     <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-white dark:bg-[#111827] border-2 border-blue-500 flex items-center justify-center text-blue-500 dark:text-blue-400 text-xl shadow-lg">
                         <i class="fa-solid fa-wheat-awn"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-center text-gray-900 dark:text-white mb-3">Bakery</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm text-center leading-relaxed">
-                            We supply a variety of dairy ingredients for the bakery sector, which are used for bread or pastry mixes. Our milk powders are also used to produce biscuits, cakes, and pancakes.
+                        <h3 class="text-lg font-bold text-center text-gray-900 dark:text-white mb-2">Bakery</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-xs text-center leading-relaxed">
+                            We supply a variety of dairy ingredients for the bakery sector, used for bread or pastry mixes, biscuits, cakes, and pancakes.
                         </p>
                     </div>
-                    <div class="mt-8">
+                    <div class="mt-6">
                         <a href="bakery.html" class="block w-full py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider text-center transition-colors shadow-md">
                             Bakery
                         </a>
                     </div>
                 </div>
 
-                <!-- 2. Confectionery Card (Red Accent) -->
-                <div class="relative bg-slate-50 dark:bg-[#111827] rounded-2xl p-7 pt-12 shadow-lg border border-gray-200 dark:border-rose-500/70 hover:border-rose-500 dark:hover:border-rose-400 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="200">
+                <!-- 2. Chocolate Card (Red Accent) -->
+                <div class="relative bg-slate-50 dark:bg-[#111827] rounded-2xl p-6 pt-12 shadow-lg border border-gray-200 dark:border-rose-500/70 hover:border-rose-500 dark:hover:border-rose-400 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="200">
                     <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-white dark:bg-[#111827] border-2 border-rose-500 flex items-center justify-center text-rose-500 dark:text-rose-400 text-xl shadow-lg">
                         <i class="fa-solid fa-cookie"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-center text-gray-900 dark:text-white mb-3">Confectionary & Chocolate</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm text-center leading-relaxed">
-                            Our whole and skimmed milk powders are extremely suitable in the production of various confectionery products and premium chocolate formulations.
+                        <h3 class="text-lg font-bold text-center text-gray-900 dark:text-white mb-2">Chocolate</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-xs text-center leading-relaxed">
+                            Whole and skimmed milk powders tailored to interact with cocoa butter and deliver creamy flavor to fine chocolate and confectionery lines.
                         </p>
                     </div>
-                    <div class="mt-8">
-                        <a href="confectionary.html" class="block w-full py-2.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs uppercase tracking-wider text-center transition-colors shadow-md">
-                            Confectionary
+                    <div class="mt-6">
+                        <a href="chocolate.html" class="block w-full py-2.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs uppercase tracking-wider text-center transition-colors shadow-md">
+                            Chocolate
                         </a>
                     </div>
                 </div>
 
                 <!-- 3. Dairy Card (Emerald Accent) -->
-                <div class="relative bg-slate-50 dark:bg-[#111827] rounded-2xl p-7 pt-12 shadow-lg border border-gray-200 dark:border-emerald-500/70 hover:border-emerald-500 dark:hover:border-emerald-400 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative bg-slate-50 dark:bg-[#111827] rounded-2xl p-6 pt-12 shadow-lg border border-gray-200 dark:border-emerald-500/70 hover:border-emerald-500 dark:hover:border-emerald-400 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="300">
                     <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-white dark:bg-[#111827] border-2 border-emerald-500 flex items-center justify-center text-emerald-500 dark:text-emerald-400 text-xl shadow-lg">
                         <i class="fa-solid fa-cow"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-center text-gray-900 dark:text-white mb-3">Dairy</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm text-center leading-relaxed">
-                            For daily fresh dairy products such as desserts and yoghurt drinks, skimmed milk powder is used to improve texture and increase protein levels.
+                        <h3 class="text-lg font-bold text-center text-gray-900 dark:text-white mb-2">Dairy</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-xs text-center leading-relaxed">
+                            Skimmed and fatfilled milk powders to elevate texture and protein in desserts, yogurts, and artisan cheese varieties.
                         </p>
                     </div>
-                    <div class="mt-8">
+                    <div class="mt-6">
                         <a href="dairy-industrial.html" class="block w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider text-center transition-colors shadow-md">
                             Dairy
                         </a>
@@ -170,19 +169,37 @@
                 </div>
 
                 <!-- 4. Ice Cream Card (Cyan Accent) -->
-                <div class="relative bg-slate-50 dark:bg-[#111827] rounded-2xl p-7 pt-12 shadow-lg border border-gray-200 dark:border-cyan-500/70 hover:border-cyan-500 dark:hover:border-cyan-400 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="400">
+                <div class="relative bg-slate-50 dark:bg-[#111827] rounded-2xl p-6 pt-12 shadow-lg border border-gray-200 dark:border-cyan-500/70 hover:border-cyan-500 dark:hover:border-cyan-400 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="400">
                     <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-white dark:bg-[#111827] border-2 border-cyan-500 flex items-center justify-center text-cyan-500 dark:text-cyan-400 text-xl shadow-lg">
                         <i class="fa-solid fa-ice-cream"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-center text-gray-900 dark:text-white mb-3">Ice Cream</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm text-center leading-relaxed">
-                            Many dairy products are used in the ice cream industry. We supply this sector with specialized milk powders, functional milk proteins, and liquid cream.
+                        <h3 class="text-lg font-bold text-center text-gray-900 dark:text-white mb-2">Ice Cream</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-xs text-center leading-relaxed">
+                            Custom milk protein blends and liquid creams formulated to master aeration, melting resistance, and silky texture.
                         </p>
                     </div>
-                    <div class="mt-8">
+                    <div class="mt-6">
                         <a href="ice-cream.html" class="block w-full py-2.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs uppercase tracking-wider text-center transition-colors shadow-md">
                             Ice Cream
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 5. Fruit Fillings Card (Purple Accent) -->
+                <div class="relative bg-slate-50 dark:bg-[#111827] rounded-2xl p-6 pt-12 shadow-lg border border-gray-200 dark:border-purple-500/70 hover:border-purple-500 dark:hover:border-purple-400 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-white dark:bg-[#111827] border-2 border-purple-500 flex items-center justify-center text-purple-500 dark:text-purple-400 text-xl shadow-lg">
+                        <i class="fa-solid fa-apple-whole"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-center text-gray-900 dark:text-white mb-2">Fruit Fillings</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-xs text-center leading-relaxed">
+                            Bake-stable, high-fruit preparations and pie fillings manufactured for bakery pastries, tarts, cakes, and dairy desserts.
+                        </p>
+                    </div>
+                    <div class="mt-6">
+                        <a href="fruit-fillings.html" class="block w-full py-2.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs uppercase tracking-wider text-center transition-colors shadow-md">
+                            Fruit Fillings
                         </a>
                     </div>
                 </div>
@@ -226,7 +243,6 @@
                 <!-- 2. Easy & Fast Baking Powders (Amber Accent - COMING SOON) -->
                 <div class="relative bg-white dark:bg-[#111827] rounded-2xl p-7 pt-12 shadow-lg border border-gray-200 dark:border-amber-500/70 hover:border-amber-500 dark:hover:border-amber-400 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 group opacity-90" data-aos="fade-up" data-aos-delay="200">
                     
-                    <!-- Coming Soon Badge -->
                     <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-brandOrange text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest shadow-md z-10">
                         Coming Soon
                     </div>

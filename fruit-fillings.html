@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Fillings | New Generation</title>
+    
+    <script>
+        if (localStorage.theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandOrange: '#d9611e', 
+                        brandBlue: '#003366', 
+                        darkBg: '#090d16',
+                        darkNav: '#0f172a',
+                        darkCard: '#111827',
+                        cardBlue: '#0ea5e9'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- EN/FR translation widget styles & scripts -->
+    <link rel="stylesheet" href="translate-widget.css">
+    <script src="translate-widget.js"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        .dark ::-webkit-scrollbar-track { background: #090d16; }
+        ::-webkit-scrollbar-thumb { background: #d9611e; border-radius: 4px; }
+        
+        .dropdown-menu { display: none; }
+        .group:hover .dropdown-menu { display: block; }
+    </style>
+</head>
+<body class="bg-white dark:bg-[#0b101b] text-gray-800 dark:text-gray-200 transition-colors duration-300">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="fixed w-full z-50 bg-white/95 dark:bg-darkNav/95 backdrop-blur-lg shadow-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div id="google_translate_element" class="hidden"></div>
+        <div id="navbar-placeholder"></div>
+    </nav>
+    <script src="nav-loader.js"></script>
+
+    <!-- HERO SECTION (LIGHT THEME DEFAULT) -->
+    <section class="pt-36 pb-20 md:pt-44 md:pb-28 bg-slate-50 dark:bg-[#090d16] relative overflow-hidden border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6" data-aos="fade-down">
+                <a href="index.html" class="hover:text-brandOrange transition-colors">Home</a>
+                <i class="fa-solid fa-chevron-right text-[10px] text-gray-400"></i>
+                <a href="dairy-overview.html" class="hover:text-brandOrange transition-colors">Industrial Supplies</a>
+                <i class="fa-solid fa-chevron-right text-[10px] text-gray-400"></i>
+                <span class="text-brandOrange">Fruit Fillings</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-6 space-y-6" data-aos="fade-right" data-aos-duration="900">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
+                        Fruit Fillings
+                    </h1>
+                    <p class="text-gray-600 dark:text-gray-400 text-base sm:text-lg leading-relaxed max-w-xl">
+                        Our premium fruit fillings are crafted with up to 70% fruit content, ensuring an authentic and vibrant flavor. Perfectly balanced with natural sweetness and rich texture, they're ideal for enhancing baked goods, desserts, and breakfast creations. Whether you're layering them in cakes, filling pastries, or topping your morning toast, these fruit fillings deliver the essence of real fruit in every spoonful.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="contact.html" class="px-7 py-3.5 rounded-xl bg-brandOrange text-white font-semibold shadow-lg hover:bg-orange-600 transition-all transform hover:-translate-y-0.5">
+                            Request Quote
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Hero Image Card (fruit-0.jpg) -->
+                <div class="lg:col-span-6 relative" data-aos="fade-left" data-aos-duration="900">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111827]">
+                        <img src="pics/fruit-0.jpg" alt="Fruit Fillings overview" class="w-full h-[400px] object-cover">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. STRAWBERRY -->
+    <section class="py-20 bg-white dark:bg-[#0b101b] relative transition-colors duration-300 border-b border-gray-100 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-down">
+                <h2 class="text-3xl font-bold text-brandBlue dark:text-white">Strawberry</h2>
+                <div class="w-16 h-1 bg-brandOrange mx-auto rounded-full mt-3"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6" data-aos="fade-right">
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-base sm:text-lg">
+                        Bursting with the natural sweetness of ripe strawberries, our Strawberry Fruit Filling is your go-to solution for delicious, professional-quality desserts. With visible fruit chunks and a rich, glossy texture, it enhances everything from pies to pastries, cupcakes to cheesecakes.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-base sm:text-lg">
+                        Made without artificial flavors or colors, it delivers clean label quality and consistent performance in baking, freezing, or cooking applications.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-6" data-aos="fade-left">
+                    <div class="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#111827]">
+                        <img src="pics/fruit-1.jpg" alt="Strawberry fruit filling cake" class="w-full h-80 sm:h-96 object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. APPLE -->
+    <section class="py-20 bg-slate-50 dark:bg-[#090d16] relative transition-colors duration-300 border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-down">
+                <h2 class="text-3xl font-bold text-brandBlue dark:text-white">Apple</h2>
+                <div class="w-16 h-1 bg-brandOrange mx-auto rounded-full mt-3"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 order-2 lg:order-1" data-aos="fade-right">
+                    <div class="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111827]">
+                        <img src="pics/fruit-2.jpg" alt="Apple fruit filling bundt cake" class="w-full h-80 sm:h-96 object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6 order-1 lg:order-2" data-aos="fade-left">
+                    <h3 class="text-xl font-bold text-brandOrange">Classic Comfort with Real Apple Chunks</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
+                        Our Apple Fruit Filling is made with tender, juicy apple slices cooked in a lightly spiced syrup, bringing a perfect balance of sweetness and warmth. Ideal for classic apple pies, pastries, and turnovers, it offers consistent flavor and texture in every batch.
+                    </p>
+                    
+                    <div>
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm mb-2 uppercase tracking-wide">Perfect for:</h4>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1 text-sm">
+                            <li>Pies, tarts, and strudels</li>
+                            <li>Turnovers and danishes</li>
+                            <li>Cake and muffin fillings</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm mb-2 uppercase tracking-wide">Key Features:</h4>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1 text-sm">
+                            <li>Made with real apple chunks</li>
+                            <li>Lightly spiced for classic flavor</li>
+                            <li>Bake-stable and freeze-thaw stable</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. ORANGE -->
+    <section class="py-20 bg-white dark:bg-[#0b101b] relative transition-colors duration-300 border-b border-gray-100 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-down">
+                <h2 class="text-3xl font-bold text-brandBlue dark:text-white">Orange</h2>
+                <div class="w-16 h-1 bg-brandOrange mx-auto rounded-full mt-3"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6" data-aos="fade-right">
+                    <h3 class="text-xl font-bold text-brandOrange">Zesty and Bright Citrus Flavor</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
+                        Bring a burst of sunshine to your baked goods with our Orange Fruit Filling. Crafted from real oranges and citrus zest, it offers a sweet and tangy profile that enhances cakes, pastries, and desserts with a bold citrus kick.
+                    </p>
+                    
+                    <div>
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm mb-2 uppercase tracking-wide">Perfect for:</h4>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1 text-sm">
+                            <li>Orange tarts and cakes</li>
+                            <li>Filled donuts and danishes</li>
+                            <li>Glazes and citrus-based desserts</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm mb-2 uppercase tracking-wide">Key Features:</h4>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1 text-sm">
+                            <li>Made with real orange and zest</li>
+                            <li>Tangy-sweet balance</li>
+                            <li>Smooth, spreadable consistency</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6" data-aos="fade-left">
+                    <div class="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#111827]">
+                        <img src="pics/fruit-3.jpg" alt="Orange fruit filling tart" class="w-full h-80 sm:h-96 object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. MANGO -->
+    <section class="py-20 bg-slate-50 dark:bg-[#090d16] relative transition-colors duration-300 border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-down">
+                <h2 class="text-3xl font-bold text-brandBlue dark:text-white">Mango</h2>
+                <div class="w-16 h-1 bg-brandOrange mx-auto rounded-full mt-3"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 order-2 lg:order-1" data-aos="fade-right">
+                    <div class="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111827]">
+                        <img src="pics/fruit-4.jpg" alt="Mango fruit filling cheesecake" class="w-full h-80 sm:h-96 object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6 order-1 lg:order-2" data-aos="fade-left">
+                    <h3 class="text-xl font-bold text-brandOrange">Tropical Sweetness in Every Spoonful</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
+                        Our Mango Fruit Filling delivers the rich, juicy flavor of ripe mangoes in a smooth, golden filling. Perfect for tropical-themed desserts, pastries, and cakes, this filling adds a bright and refreshing taste with every use.
+                    </p>
+                    
+                    <div>
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm mb-2 uppercase tracking-wide">Perfect for:</h4>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1 text-sm">
+                            <li>Mango cheesecakes and mousse</li>
+                            <li>Pastry and tart fillings</li>
+                            <li>Yogurt toppings and parfaits</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm mb-2 uppercase tracking-wide">Key Features:</h4>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1 text-sm">
+                            <li>Smooth texture with real mango puree</li>
+                            <li>Naturally vibrant color</li>
+                            <li>Excellent for chilled and frozen desserts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. LEMON -->
+    <section class="py-20 bg-white dark:bg-[#0b101b] relative transition-colors duration-300 border-b border-gray-100 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-down">
+                <h2 class="text-3xl font-bold text-brandBlue dark:text-white">Lemon</h2>
+                <div class="w-16 h-1 bg-brandOrange mx-auto rounded-full mt-3"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6" data-aos="fade-right">
+                    <h3 class="text-xl font-bold text-brandOrange">Refreshing Tartness Made with Real Lemon</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
+                        Our Lemon Fruit Filling delivers a bright, tangy flavor with the perfect touch of sweetness. Smooth and glossy, it's ideal for lemon tarts, pies, and filled desserts where a refreshing citrus bite is essential.
+                    </p>
+                    
+                    <div>
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm mb-2 uppercase tracking-wide">Perfect for:</h4>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1 text-sm">
+                            <li>Lemon meringue pie</li>
+                            <li>Filled cupcakes and tartlets</li>
+                            <li>Donuts and bars</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm mb-2 uppercase tracking-wide">Key Features:</h4>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1 text-sm">
+                            <li>Made with real lemon juice and zest</li>
+                            <li>Smooth texture, vibrant yellow color</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6" data-aos="fade-left">
+                    <div class="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#111827]">
+                        <img src="pics/fruit-5.jpg" alt="Lemon fruit filling bars" class="w-full h-80 sm:h-96 object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CHERRY -->
+    <section class="py-20 bg-slate-50 dark:bg-[#090d16] relative transition-colors duration-300 border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-down">
+                <h2 class="text-3xl font-bold text-brandBlue dark:text-white">Cherry</h2>
+                <div class="w-16 h-1 bg-brandOrange mx-auto rounded-full mt-3"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 order-2 lg:order-1" data-aos="fade-right">
+                    <div class="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111827]">
+                        <img src="pics/fruit-6.jpg" alt="Cherry fruit filling closeup" class="w-full h-80 sm:h-96 object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6 order-1 lg:order-2" data-aos="fade-left">
+                    <h3 class="text-xl font-bold text-brandOrange">Bold, Juicy Flavor with Whole Cherries</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
+                        Packed with plump, juicy cherries in a rich red syrup, our Cherry Fruit Filling adds a vibrant and fruity touch to any dessert. It's perfect for traditional cherry pies, strudels, and all your baking creations that call for a bold cherry presence.
+                    </p>
+                    
+                    <div>
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm mb-2 uppercase tracking-wide">Perfect for:</h4>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1 text-sm">
+                            <li>Cherry pie and crumble</li>
+                            <li>Pastries and danishes</li>
+                            <li>Dessert toppings and fillings</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm mb-2 uppercase tracking-wide">Key Features:</h4>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1 text-sm">
+                            <li>Whole cherries in thick syrup</li>
+                            <li>Deep red color and natural flavor</li>
+                            <li>Bake-stable and freeze-thaw stable</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. RASPBERRY -->
+    <section class="py-20 bg-white dark:bg-[#0b101b] relative transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-down">
+                <h2 class="text-3xl font-bold text-brandBlue dark:text-white">Raspberry</h2>
+                <div class="w-16 h-1 bg-brandOrange mx-auto rounded-full mt-3"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6" data-aos="fade-right">
+                    <h3 class="text-xl font-bold text-brandOrange">Sweet and Tart with Real Raspberry Pieces</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
+                        Our Raspberry Fruit Filling combines sweet and tangy raspberry flavor with a deep red color and real berry texture. Perfect for high-end pastries, tarts, and dessert fillings, it delivers both visual appeal and a burst of berry freshness.
+                    </p>
+                    
+                    <div>
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm mb-2 uppercase tracking-wide">Perfect for:</h4>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1 text-sm">
+                            <li>Raspberry tarts and pastries</li>
+                            <li>Layer cakes and mousses</li>
+                            <li>Filled donuts and macarons</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm mb-2 uppercase tracking-wide">Key Features:</h4>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1 text-sm">
+                            <li>Made with real raspberries</li>
+                            <li>Naturally bold color and flavor</li>
+                            <li>Ideal for gourmet dessert applications</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6" data-aos="fade-left">
+                    <div class="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#111827]">
+                        <img src="pics/fruit-7.jpg" alt="Raspberry fruit filling bowl" class="w-full h-80 sm:h-96 object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="bg-brandBlue text-white relative mt-12 border-t-[6px] border-brandOrange">
+        <div class="absolute -top-12 left-4 lg:left-32 z-10 transition-transform duration-300 hover:-translate-y-1 cursor-default">
+            <div class="bg-cardBlue text-white text-2xl italic font-semibold px-8 py-3 shadow-lg rounded-t-sm inline-block">
+                Get in Touch
+            </div>
+            <div class="w-0 h-0 border-t-[10px] border-t-cardBlue border-l-[10px] border-l-transparent absolute top-0 -left-[10px]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 rounded-full bg-cardBlue flex items-center justify-center shadow-lg">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <h3 class="text-xl text-brandOrange uppercase font-medium">Our Locations</h3>
+                    </div>
+                    <div class="w-full h-48 rounded-lg overflow-hidden shadow-md border border-slate-700 relative">
+                        <iframe src="https://maps.google.com/maps?q=29.948672227543863,30.92405641222272&z=17&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 rounded-full bg-cardBlue flex items-center justify-center shadow-lg">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <h3 class="text-xl text-brandOrange uppercase font-medium">Contact Information</h3>
+                    </div>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-brandOrange flex-shrink-0 flex items-center justify-center mt-1">
+                                <i class="fa-solid fa-location-dot text-white text-sm"></i>
+                            </div>
+                            <span class="text-gray-200 leading-relaxed text-sm">Building 1000, street 25, District 5,<br>6th of October city</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 rounded-full bg-brandOrange flex-shrink-0 flex items-center justify-center">
+                                <i class="fa-solid fa-phone text-white text-sm"></i>
+                            </div>
+                            <span class="text-gray-200 text-sm">+202 36923268</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 rounded-full bg-brandOrange flex-shrink-0 flex items-center justify-center">
+                                <i class="fa-solid fa-envelope text-white text-sm"></i>
+                            </div>
+                            <a href="mailto:info@newgeneration-eg.com" class="text-cardBlue hover:text-sky-300 text-sm transition-colors">info@newgeneration-eg.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 rounded-full bg-cardBlue flex items-center justify-center shadow-lg">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <h3 class="text-xl text-brandOrange uppercase font-medium">Social Media</h3>
+                    </div>
+                    <div class="flex gap-4 mt-8">
+                        <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brandBlue hover:bg-brandOrange hover:text-white transition-all text-xl shadow-md">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brandBlue hover:bg-brandOrange hover:text-white transition-all text-xl shadow-md">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brandBlue hover:bg-brandOrange hover:text-white transition-all text-xl shadow-md">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="border-t border-slate-700/50 py-4 text-center text-sm text-gray-400 bg-brandBlue/90">
+            © 2026 New Generation. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50, duration: 800 });
+    </script>
+</body>
+</html>

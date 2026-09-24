@@ -34,9 +34,7 @@
     </script>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- EN/FR translation -->
@@ -57,13 +55,14 @@
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-darkBg dark:text-gray-200 transition-colors duration-300">
 
-      <!-- TEMP NAVIGATION BAR -->
-  <nav class="fixed w-full z-50 bg-white/95 dark:bg-darkNav/95 backdrop-blur-lg shadow-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+    <!-- NAVIGATION BAR -->
+    <nav class="fixed w-full z-50 bg-white/95 dark:bg-darkNav/95 backdrop-blur-lg shadow-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
         <div id="google_translate_element" class="hidden"></div>
         <div id="navbar-placeholder"></div>
     </nav>
-    <!-- END TEMP NAVIGATION BAR -->
     <script src="nav-loader.js"></script>
+
+    <!-- HEADER -->
     <header class="relative pt-28 pb-12 md:pt-36 md:pb-16 bg-[#001c38] text-white overflow-hidden flex items-center justify-center border-b border-sky-900/40">
         <div class="absolute inset-0 bg-gradient-to-tr from-brandBlue to-[#001830] opacity-90 z-0"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 text-center" data-aos="zoom-in" data-aos-duration="800">
@@ -72,15 +71,17 @@
         </div>
     </header>
 
+    <!-- SERVICES SECTION -->
     <section class="py-12 md:py-16 bg-gray-50 dark:bg-darkBg transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                 
+                <!-- Service Card 1 -->
                 <div class="bg-white dark:bg-darkCard rounded-md shadow-sm border border-gray-200/80 dark:border-gray-700 border-t-[4px] border-t-cardBlue flex flex-col h-full transform transition-all duration-300 hover:shadow-md hover:-translate-y-1" data-aos="fade-up">
                     <div class="relative p-5 pb-8">
                         <div class="h-48 sm:h-52 w-full overflow-hidden rounded">
-                            <img src="https://images.unsplash.com/photo-1546548970-71785318a17b?auto=format&fit=crop&w=800&q=80" alt="Food Ingredients" class="w-full h-full object-cover">
+                            <img src="pics/service-1.jpg" alt="Food Ingredients" class="w-full h-full object-cover">
                         </div>
                         <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-white dark:bg-gray-800 rounded-full shadow border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-400 z-10">
                             <i class="fa-solid fa-chevron-down text-xs"></i>
@@ -93,10 +94,11 @@
                     </div>
                 </div>
 
+                <!-- Service Card 2 -->
                 <div class="bg-white dark:bg-darkCard rounded-md shadow-sm border border-gray-200/80 dark:border-gray-700 border-t-[4px] border-t-cardBlue flex flex-col h-full transform transition-all duration-300 hover:shadow-md hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative p-5 pb-8 flex items-center justify-center bg-white rounded-t-md">
-                        <div class="h-48 sm:h-52 w-full flex items-center justify-center px-4">
-                            <img src="https://logonoid.com/images/lactalis-ingredients-logo.png" alt="Lactalis Ingredients" class="max-h-36 max-w-full object-contain">
+                    <div class="relative p-5 pb-8">
+                        <div class="h-48 sm:h-52 w-full overflow-hidden rounded">
+                            <img src="pics/service-2.png" alt="Lactalis Ingredients" class="w-full h-full object-cover">
                         </div>
                         <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-white dark:bg-gray-800 rounded-full shadow border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-400 z-10">
                             <i class="fa-solid fa-chevron-down text-xs"></i>
@@ -109,10 +111,11 @@
                     </div>
                 </div>
 
+                <!-- Service Card 3 -->
                 <div class="bg-white dark:bg-darkCard rounded-md shadow-sm border border-gray-200/80 dark:border-gray-700 border-t-[4px] border-t-cardBlue flex flex-col h-full transform transition-all duration-300 hover:shadow-md hover:-translate-y-1" data-aos="fade-up">
                     <div class="relative p-5 pb-8">
                         <div class="h-48 sm:h-52 w-full overflow-hidden rounded">
-                            <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?auto=format&fit=crop&w=800&q=80" alt="Global Logistics" class="w-full h-full object-cover">
+                            <img src="pics/service-3.jpg" alt="Global Logistics" class="w-full h-full object-cover">
                         </div>
                         <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-white dark:bg-gray-800 rounded-full shadow border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-400 z-10">
                             <i class="fa-solid fa-chevron-down text-xs"></i>
@@ -128,10 +131,11 @@
                     </div>
                 </div>
 
+                <!-- Service Card 4 -->
                 <div class="bg-white dark:bg-darkCard rounded-md shadow-sm border border-gray-200/80 dark:border-gray-700 border-t-[4px] border-t-cardBlue flex flex-col h-full transform transition-all duration-300 hover:shadow-md hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative p-5 pb-8 flex items-center justify-center bg-white dark:bg-gray-700 rounded-t-md">
-                        <div class="h-48 sm:h-52 w-full flex items-center justify-center px-4">
-                            <img src="https://www.waldent.com/images/bona-aid-wound-dressing-package.png" alt="Dental Supplies" class="max-h-36 max-w-full object-contain mix-blend-multiply dark:mix-blend-normal">
+                    <div class="relative p-5 pb-8">
+                        <div class="h-48 sm:h-52 w-full overflow-hidden rounded">
+                            <img src="pics/service-4.jpg" alt="Dental Supplies" class="w-full h-full object-cover">
                         </div>
                         <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-white dark:bg-gray-800 rounded-full shadow border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-400 z-10">
                             <i class="fa-solid fa-chevron-down text-xs"></i>
@@ -148,6 +152,7 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer id="contact" class="bg-brandBlue text-white relative mt-12 border-t-[6px] border-brandOrange">
         <div class="absolute -top-12 left-4 lg:left-32 z-10 transition-transform duration-300 hover:-translate-y-1 cursor-default">
             <div class="bg-cardBlue text-white text-2xl italic font-semibold px-8 py-3 shadow-lg rounded-t-sm inline-block">
