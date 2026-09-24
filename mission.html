@@ -6,7 +6,6 @@
     <title>Our Mission | New Generation</title>
     
     <script>
-        // Defaults to light mode unless the user explicitly toggled dark mode previously
         if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark');
         } else {
@@ -60,6 +59,18 @@
         
         .dropdown-menu { display: none; }
         .group:hover .dropdown-menu { display: block; }
+
+        /* SVG Slice Interactive Hover */
+        .svg-slice {
+            transition: filter 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            transform-origin: 200px 200px;
+        }
+        .svg-slice:hover {
+            filter: brightness(1.08);
+            transform: scale(1.04);
+            z-index: 50;
+        }
 
         /* Animated Word Carousel */
         .dynamic-text-wrapper {
@@ -161,133 +172,125 @@
                     </div>
                 </div>
 
-                <!-- RIGHT: VECTOR MISSION WHEEL -->
+                <!-- RIGHT: INTERACTIVE SVG MISSION WHEEL -->
                 <div class="lg:col-span-6 flex justify-center items-center" data-aos="fade-left">
-                    <div class="w-full max-w-[480px] sm:max-w-[520px] aspect-square rounded-3xl p-3 sm:p-5 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800/80 dark:to-gray-900/90 shadow-2xl border border-gray-200/80 dark:border-gray-700/80">
-                        <svg viewBox="0 0 700 700" class="w-full h-full select-none drop-shadow-md">
-                            <defs>
-                                <filter id="wheelShadow" x="-10%" y="-10%" width="120%" height="120%">
-                                    <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.15" />
-                                </filter>
-                            </defs>
-
-                            <g transform="translate(350, 350)">
-                                
-                                <!-- OUTER STEPPED RINGS / FLAPS -->
-                                <!-- Cyan arc (Top-Left) -->
-                                <path d="M 0 0 L -295 -107 A 314 314 0 0 1 -107 -295 Z" fill="#4fa8b8" opacity="0.95" />
-                                
-                                <!-- Royal Blue arc (Top) -->
-                                <path d="M 0 0 L -107 -295 A 314 314 0 0 1 184 -254 Z" fill="#1b6ca8" opacity="0.95" />
-                                
-                                <!-- Olive / Forest Green arc (Top-Right to Right) -->
-                                <path d="M 0 0 L 184 -254 A 314 314 0 0 1 295 107 Z" fill="#586735" opacity="0.95" />
-                                
-                                <!-- Crimson Red arc (Bottom) -->
-                                <path d="M 0 0 L 295 107 A 314 314 0 0 1 -184 254 Z" fill="#c71f37" opacity="0.95" />
-                                
-                                <!-- Warm Gold arc (Bottom-Left) -->
-                                <path d="M 0 0 L -184 254 A 314 314 0 0 1 -295 -107 Z" fill="#e59e1b" opacity="0.95" />
-
-                                <!-- INTERMEDIATE RING (Light Ivory background for segments) -->
-                                <circle r="275" fill="#f8f9fa" stroke="#e2e8f0" stroke-width="2" filter="url(#wheelShadow)" />
-
-                                <!-- OUTER RING LABELS -->
-                                <g font-family="'Poppins', sans-serif" font-weight="800" font-size="13" fill="#1e293b" text-anchor="middle" letter-spacing="0.5">
-                                    <!-- Serving People Around The World (Top-Left Outer) -->
-                                    <text x="-165" y="-120">
-                                        <tspan x="-165" dy="0">SERVING</tspan>
-                                        <tspan x="-165" dy="17">PEOPLE AROUND</tspan>
-                                        <tspan x="-165" dy="17">THE WORLD</tspan>
-                                    </text>
-
-                                    <!-- Being Open and Outward-Looking (Bottom-Left Outer) -->
-                                    <text x="-170" y="85">
-                                        <tspan x="-170" dy="0">BEING OPEN AND</tspan>
-                                        <tspan x="-170" dy="17">OUTWARD-LOOKING</tspan>
-                                    </text>
+                    <div class="relative w-full max-w-[420px] sm:max-w-[480px] aspect-square">
+                        
+                        <svg viewBox="0 0 400 400" class="w-full h-full drop-shadow-2xl font-sans select-none overflow-visible">
+                            
+                            <!-- 1. SHARING FLAVOURS (-90 deg) -->
+                            <g class="svg-slice">
+                                <g transform="rotate(-90 200 200)">
+                                    <path d="M 200 200 L 357.67 124.07 A 175 175 0 0 1 357.67 275.93 Z" class="fill-white dark:fill-slate-800 stroke-slate-200 dark:stroke-slate-700" stroke-width="1.5" />
+                                    <path d="M 357.67 124.07 L 371.18 117.56 A 190 190 0 0 1 371.18 282.44 L 357.67 275.93 A 175 175 0 0 0 357.67 124.07 Z" fill="#1b6ca8" class="stroke-white dark:stroke-slate-800" stroke-width="1.5" />
                                 </g>
-
-                                <!-- SEGMENT DIVIDERS (Subtle radial lines) -->
-                                <line x1="0" y1="0" x2="-238" y2="-137" stroke="#cbd5e1" stroke-width="1.5" />
-                                <line x1="0" y1="0" x2="-85" y2="-261" stroke="#cbd5e1" stroke-width="1.5" />
-                                <line x1="0" y1="0" x2="161" y2="-222" stroke="#cbd5e1" stroke-width="1.5" />
-                                <line x1="0" y1="0" x2="261" y2="-85" stroke="#cbd5e1" stroke-width="1.5" />
-                                <line x1="0" y1="0" x2="247" y2="120" stroke="#cbd5e1" stroke-width="1.5" />
-                                <line x1="0" y1="0" x2="85" y2="261" stroke="#cbd5e1" stroke-width="1.5" />
-                                <line x1="0" y1="0" x2="-137" y2="238" stroke="#cbd5e1" stroke-width="1.5" />
-                                <line x1="0" y1="0" x2="-261" y2="85" stroke="#cbd5e1" stroke-width="1.5" />
-
-                                <!-- INNER WHEEL LABELS (Wedges) -->
-                                <g font-family="'Poppins', sans-serif" font-weight="800" font-size="12" fill="#1e293b" text-anchor="middle" letter-spacing="0.5">
-                                    <!-- Sharing Flavours (Top Segment) -->
-                                    <text x="35" y="-195">
-                                        <tspan x="35" dy="0">SHARING</tspan>
-                                        <tspan x="35" dy="16">FLAVOURS</tspan>
-                                    </text>
-
-                                    <!-- Revitalising Regions (Top-Right Segment) -->
-                                    <text x="160" y="-140">
-                                        <tspan x="160" dy="0">REVITALISING</tspan>
-                                        <tspan x="160" dy="16">REGIONS</tspan>
-                                    </text>
-
-                                    <!-- Making a Commitment to Talented Individuals (Right Segment) -->
-                                    <text x="180" y="5">
-                                        <tspan x="180" dy="0">MAKING</tspan>
-                                        <tspan x="180" dy="15">A COMMITMENT</tspan>
-                                        <tspan x="180" dy="15">TO TALENTED</tspan>
-                                        <tspan x="180" dy="15">INDIVIDUALS</tspan>
-                                    </text>
-
-                                    <!-- Transforming Our Business (Bottom-Right Segment) -->
-                                    <text x="135" y="160">
-                                        <tspan x="135" dy="0">TRANSFORMING</tspan>
-                                        <tspan x="135" dy="16">OUR BUSINESS</tspan>
-                                    </text>
-
-                                    <!-- Supporting Our Partners (Bottom-Left Segment) -->
-                                    <text x="-40" y="195">
-                                        <tspan x="-40" dy="0">SUPPORTING</tspan>
-                                        <tspan x="-40" dy="16">OUR PARTNERS</tspan>
-                                    </text>
-                                </g>
-
-                                <!-- INNER WHITE HUB / LOGO CIRCLE -->
-                                <circle r="120" fill="#ffffff" stroke="#003366" stroke-width="4" filter="url(#wheelShadow)" />
-                                <circle r="114" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
-
-                                <!-- CENTER LOGO CONTENT -->
-                                <g transform="translate(0, -15)">
-                                    <!-- Golden Star Constellation -->
-                                    <g fill="#d9611e">
-                                        <!-- Top row -->
-                                        <polygon points="0,-35 2,-30 7,-30 3,-27 5,-22 0,-25 -5,-22 -3,-27 -7,-30 -2,-30" />
-                                        <polygon points="14,-31 15.5,-27 19.5,-27 16,-24.5 17.5,-20.5 14,-23 10.5,-20.5 12,-24.5 8.5,-27 12.5,-27" transform="scale(0.8) translate(3, -5)" />
-                                        <polygon points="-14,-31 -12.5,-27 -8.5,-27 -12,-24.5 -10.5,-20.5 -14,-23 -17.5,-20.5 -16,-24.5 -19.5,-27 -15.5,-27" transform="scale(0.8) translate(-3, -5)" />
-                                        <!-- Middle row -->
-                                        <polygon points="26,-20 27.5,-16 31.5,-16 28,-13.5 29.5,-9.5 26,-12 22.5,-9.5 24,-13.5 20.5,-16 24.5,-16" transform="scale(0.7) translate(10, -5)" />
-                                        <polygon points="-26,-20 -24.5,-16 -20.5,-16 -24,-13.5 -22.5,-9.5 -26,-12 -29.5,-9.5 -28,-13.5 -31.5,-16 -27.5,-16" transform="scale(0.7) translate(-10, -5)" />
-                                        <!-- Bottom clusters -->
-                                        <polygon points="-8,-12 -6.5,-8 -2.5,-8 -6,-5.5 -4.5,-1.5 -8,-4 -11.5,-1.5 -10,-5.5 -13.5,-8 -9.5,-8" transform="scale(0.65) translate(-5, -6)" />
-                                        <polygon points="8,-12 9.5,-8 13.5,-8 10,-5.5 11.5,-1.5 8,-4 4.5,-1.5 6,-5.5 2.5,-8 6.5,-8" transform="scale(0.65) translate(5, -6)" />
-                                        <circle cx="-16" cy="-8" r="1.5" />
-                                        <circle cx="16" cy="-8" r="1.5" />
-                                        <circle cx="-4" cy="-2" r="1.2" />
-                                        <circle cx="4" cy="-2" r="1.2" />
-                                    </g>
-
-                                    <!-- Script Logo Text -->
-                                    <text x="0" y="32" font-family="'Playfair Display', Georgia, serif" font-style="italic" font-weight="600" font-size="21" fill="#003366" text-anchor="middle" letter-spacing="0.5">
-                                        New Generation
-                                    </text>
-                                    <text x="0" y="47" font-family="'Poppins', sans-serif" font-weight="700" font-size="7.5" fill="#d9611e" text-anchor="middle" letter-spacing="2.5">
-                                        IMPORT & EXPORT
-                                    </text>
-                                </g>
-
+                                <text x="200" y="65" font-family="'Poppins', sans-serif" font-weight="800" font-size="9" class="fill-slate-800 dark:fill-slate-200" text-anchor="middle" letter-spacing="0.5">
+                                    <tspan x="200" dy="0">SHARING</tspan>
+                                    <tspan x="200" dy="13">FLAVOURS</tspan>
+                                </text>
                             </g>
+
+                            <!-- 2. REVITALISING REGIONS (-38.57 deg) -->
+                            <g class="svg-slice">
+                                <g transform="rotate(-38.57 200 200)">
+                                    <path d="M 200 200 L 357.67 124.07 A 175 175 0 0 1 357.67 275.93 Z" class="fill-white dark:fill-slate-800 stroke-slate-200 dark:stroke-slate-700" stroke-width="1.5" />
+                                    <path d="M 357.67 124.07 L 371.18 117.56 A 190 190 0 0 1 371.18 282.44 L 357.67 275.93 A 175 175 0 0 0 357.67 124.07 Z" fill="#586735" class="stroke-white dark:stroke-slate-800" stroke-width="1.5" />
+                                </g>
+                                <text x="305" y="113" font-family="'Poppins', sans-serif" font-weight="800" font-size="9" class="fill-slate-800 dark:fill-slate-200" text-anchor="middle" letter-spacing="0.5">
+                                    <tspan x="305" dy="0">REVITALISING</tspan>
+                                    <tspan x="305" dy="13">REGIONS</tspan>
+                                </text>
+                            </g>
+
+                            <!-- 3. MAKING A COMMITMENT TO TALENTED INDIVIDUALS (12.86 deg) -->
+                            <g class="svg-slice">
+                                <g transform="rotate(12.86 200 200)">
+                                    <path d="M 200 200 L 357.67 124.07 A 175 175 0 0 1 357.67 275.93 Z" class="fill-white dark:fill-slate-800 stroke-slate-200 dark:stroke-slate-700" stroke-width="1.5" />
+                                    <path d="M 357.67 124.07 L 371.18 117.56 A 190 190 0 0 1 371.18 282.44 L 357.67 275.93 A 175 175 0 0 0 357.67 124.07 Z" fill="#586735" class="stroke-white dark:stroke-slate-800" stroke-width="1.5" />
+                                </g>
+                                <text x="325" y="190" font-family="'Poppins', sans-serif" font-weight="800" font-size="8" class="fill-slate-800 dark:fill-slate-200" text-anchor="middle" letter-spacing="0.5">
+                                    <tspan x="325" dy="0">MAKING</tspan>
+                                    <tspan x="325" dy="11">A COMMITMENT</tspan>
+                                    <tspan x="325" dy="11">TO TALENTED</tspan>
+                                    <tspan x="325" dy="11">INDIVIDUALS</tspan>
+                                </text>
+                            </g>
+
+                            <!-- 4. TRANSFORMING OUR BUSINESS (64.29 deg) -->
+                            <g class="svg-slice">
+                                <g transform="rotate(64.29 200 200)">
+                                    <path d="M 200 200 L 357.67 124.07 A 175 175 0 0 1 357.67 275.93 Z" class="fill-white dark:fill-slate-800 stroke-slate-200 dark:stroke-slate-700" stroke-width="1.5" />
+                                    <path d="M 357.67 124.07 L 371.18 117.56 A 190 190 0 0 1 371.18 282.44 L 357.67 275.93 A 175 175 0 0 0 357.67 124.07 Z" fill="#c71f37" class="stroke-white dark:stroke-slate-800" stroke-width="1.5" />
+                                </g>
+                                <text x="256" y="311" font-family="'Poppins', sans-serif" font-weight="800" font-size="9" class="fill-slate-800 dark:fill-slate-200" text-anchor="middle" letter-spacing="0.5">
+                                    <tspan x="256" dy="0">TRANSFORMING</tspan>
+                                    <tspan x="256" dy="13">OUR BUSINESS</tspan>
+                                </text>
+                            </g>
+
+                            <!-- 5. SUPPORTING OUR PARTNERS (115.71 deg) -->
+                            <g class="svg-slice">
+                                <g transform="rotate(115.71 200 200)">
+                                    <path d="M 200 200 L 357.67 124.07 A 175 175 0 0 1 357.67 275.93 Z" class="fill-white dark:fill-slate-800 stroke-slate-200 dark:stroke-slate-700" stroke-width="1.5" />
+                                    <path d="M 357.67 124.07 L 371.18 117.56 A 190 190 0 0 1 371.18 282.44 L 357.67 275.93 A 175 175 0 0 0 357.67 124.07 Z" fill="#c71f37" class="stroke-white dark:stroke-slate-800" stroke-width="1.5" />
+                                </g>
+                                <text x="144" y="311" font-family="'Poppins', sans-serif" font-weight="800" font-size="9" class="fill-slate-800 dark:fill-slate-200" text-anchor="middle" letter-spacing="0.5">
+                                    <tspan x="144" dy="0">SUPPORTING</tspan>
+                                    <tspan x="144" dy="13">OUR PARTNERS</tspan>
+                                </text>
+                            </g>
+
+                            <!-- 6. BEING OPEN AND OUTWARD-LOOKING (167.14 deg) -->
+                            <g class="svg-slice">
+                                <g transform="rotate(167.14 200 200)">
+                                    <path d="M 200 200 L 357.67 124.07 A 175 175 0 0 1 357.67 275.93 Z" class="fill-white dark:fill-slate-800 stroke-slate-200 dark:stroke-slate-700" stroke-width="1.5" />
+                                    <path d="M 357.67 124.07 L 371.18 117.56 A 190 190 0 0 1 371.18 282.44 L 357.67 275.93 A 175 175 0 0 0 357.67 124.07 Z" fill="#e59e1b" class="stroke-white dark:stroke-slate-800" stroke-width="1.5" />
+                                </g>
+                                <!-- Shifted x from 70 to 95 to properly center it in the wedge -->
+                                <text x="95" y="215" font-family="'Poppins', sans-serif" font-weight="800" font-size="8.5" class="fill-slate-800 dark:fill-slate-200" text-anchor="middle" letter-spacing="0.5">
+                                    <tspan x="85" dy="0">BEING OPEN AND</tspan>
+                                    <tspan x="78" dy="12">OUTWARD-LOOKING</tspan>
+                                </text>
+                            </g>
+
+                            <!-- 7. SERVING PEOPLE AROUND THE WORLD (-141.43 deg) -->
+                            <g class="svg-slice">
+                                <g transform="rotate(-141.43 200 200)">
+                                    <path d="M 200 200 L 357.67 124.07 A 175 175 0 0 1 357.67 275.93 Z" class="fill-white dark:fill-slate-800 stroke-slate-200 dark:stroke-slate-700" stroke-width="1.5" />
+                                    <path d="M 357.67 124.07 L 371.18 117.56 A 190 190 0 0 1 371.18 282.44 L 357.67 275.93 A 175 175 0 0 0 357.67 124.07 Z" fill="#4fa8b8" class="stroke-white dark:stroke-slate-800" stroke-width="1.5" />
+                                </g>
+                                <text x="96" y="110" font-family="'Poppins', sans-serif" font-weight="800" font-size="8.5" class="fill-slate-800 dark:fill-slate-200" text-anchor="middle" letter-spacing="0.5">
+                                    <tspan x="96" dy="0">SERVING</tspan>
+                                    <tspan x="96" dy="12">PEOPLE AROUND</tspan>
+                                    <tspan x="96" dy="12">THE WORLD</tspan>
+                                </text>
+                            </g>
+
+                            <!-- CENTER HUB / LOGO -->
+                            <circle cx="200" cy="200" r="75" class="fill-white dark:fill-slate-900 stroke-brandBlue dark:stroke-sky-500 drop-shadow-sm pointer-events-none" stroke-width="2.5" />
+                            <circle cx="200" cy="200" r="70" class="fill-transparent stroke-slate-200 dark:stroke-slate-700 pointer-events-none" stroke-width="1" />
+
+                            <g transform="translate(200, 185)" class="pointer-events-none">
+                                <!-- Golden Stars -->
+                                <g fill="#d9611e">
+                                    <polygon points="0,-12 1.5,-8 5,-8 2,-5 3,-1 0,-3 -3,-1 -2,-5 -5,-8 -1.5,-8" />
+                                    <polygon points="12,-8 13,-5 16,-5 13.5,-3 14.5,0 12,-1.5 9.5,0 10.5,-3 8,-5 11,-5" transform="scale(0.85)"/>
+                                    <polygon points="-12,-8 -11,-5 -8,-5 -10.5,-3 -9.5,0 -12,-1.5 -14.5,0 -13.5,-3 -16,-5 -13,-5" transform="scale(0.85)"/>
+                                    <polygon points="20,-2 21,0 23,0 21.5,1.5 22,3 20,2 18,3 18.5,1.5 17,0 19,0" transform="scale(0.7)"/>
+                                    <polygon points="-20,-2 -19,0 -17,0 -18.5,1.5 -18,3 -20,2 -22,3 -21.5,1.5 -23,0 -21,0" transform="scale(0.7)"/>
+                                </g>
+
+                                <!-- Script Logo Text -->
+                                <text x="0" y="21" font-family="'Playfair Display', Georgia, serif" font-style="italic" font-weight="600" font-size="16" class="fill-brandBlue dark:fill-white" text-anchor="middle">
+                                    New Generation
+                                </text>
+                                <text x="0" y="34" font-family="'Poppins', sans-serif" font-weight="700" font-size="5.5" fill="#d9611e" text-anchor="middle" letter-spacing="1.5">
+                                    IMPORT & EXPORT
+                                </text>
+                            </g>
+
                         </svg>
+
                     </div>
                 </div>
 
