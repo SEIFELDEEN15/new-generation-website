@@ -3,11 +3,12 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
             
-            <!-- BRAND LOGO -->
-            <a href="index.html" class="flex items-center">
-                <img src="pics/logo.png" alt="New Generation Logo" class="h-12 sm:h-14 w-auto object-contain dark:invert transition-all duration-300">
+            <!-- BRAND LOGO (Optimized for Mobile) -->
+            <a href="index.html" class="flex items-center shrink min-w-0 pr-2">
+                <img src="pics/logo.png" alt="New Generation Logo" class="h-9 sm:h-14 w-auto max-w-[140px] sm:max-w-none object-contain dark:invert transition-all duration-300">
             </a>
 
+            <!-- DESKTOP MENU -->
             <div class="hidden lg:flex items-stretch h-20">
                 <a href="index.html" class="flex items-center px-3 text-sm font-bold uppercase text-gray-700 dark:text-blue-300 hover:bg-brandOrange hover:text-white transition-colors h-full">HOME</a>
 
@@ -25,7 +26,7 @@
 
                 <a href="services.html" class="flex items-center px-3 text-sm font-bold uppercase text-gray-700 dark:text-blue-300 hover:bg-brandOrange hover:text-white transition-colors h-full">SERVICES</a>
                 
-                <!-- DAIRY SUPPLIES DROPDOWN (Added nav-dairy-item class) -->
+                <!-- DAIRY SUPPLIES DROPDOWN -->
                 <div class="nav-dairy-item group relative flex items-stretch cursor-pointer">
                     <a href="dairy-overview.html" class="flex items-center gap-1 px-3 text-sm font-bold uppercase text-gray-700 dark:text-blue-300 hover:bg-brandOrange hover:text-white transition-colors h-full">
                         DAIRY SUPPLIES <i class="fa-solid fa-caret-down ml-1"></i>
@@ -33,7 +34,6 @@
                     <div class="dropdown-menu hidden group-hover:block absolute top-full left-0 w-64 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow-xl border-t-2 border-brandOrange z-50">
                         <a href="dairy-overview.html" class="block px-4 py-3 text-sm font-bold border-b-2 border-gray-100 dark:border-gray-700 hover:text-brandOrange hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">Overview</a>
                         
-                        <!-- Industrial Group -->
                         <div class="px-4 py-2 text-[10px] font-bold text-gray-400 uppercase tracking-wider bg-gray-50 dark:bg-gray-900/50">Industrial Supplies</div>
                         <a href="bakery.html" class="block px-4 py-2.5 text-sm font-semibold border-b border-gray-100 dark:border-gray-700 hover:text-brandOrange hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors pl-6">Bakery</a>
                         <a href="chocolate.html" class="block px-4 py-2.5 text-sm font-semibold border-b border-gray-100 dark:border-gray-700 hover:text-brandOrange hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors pl-6">Chocolate</a>
@@ -41,7 +41,6 @@
                         <a href="ice-cream.html" class="block px-4 py-2.5 text-sm font-semibold border-b border-gray-100 dark:border-gray-700 hover:text-brandOrange hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors pl-6">Ice Cream</a>
                         <a href="fruit-fillings.html" class="block px-4 py-2.5 text-sm font-semibold border-b border-gray-100 dark:border-gray-700 hover:text-brandOrange hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors pl-6">Fruit Fillings</a>
                         
-                        <!-- Consumer Group -->
                         <div class="px-4 py-2 text-[10px] font-bold text-gray-400 uppercase tracking-wider bg-gray-50 dark:bg-gray-900/50 border-t border-gray-100 dark:border-gray-700">Consumer Products</div>
                         <a href="retail-powders.html" class="block px-4 py-2.5 text-sm font-semibold border-b border-gray-100 dark:border-gray-700 hover:text-brandOrange hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors pl-6">Retail Powders</a>
                         <span class="block px-4 py-2.5 text-sm font-semibold border-b border-gray-100 dark:border-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed pl-6 flex justify-between items-center">
@@ -51,7 +50,7 @@
                     </div>
                 </div>
 
-                <!-- DENTAL SUPPLIES DROPDOWN (Added nav-pharma-item class) -->
+                <!-- DENTAL SUPPLIES DROPDOWN -->
                 <div class="nav-pharma-item group relative flex items-stretch cursor-pointer">
                     <a href="dental-overview.html" class="flex items-center gap-1 px-3 text-sm font-bold uppercase text-gray-700 dark:text-blue-300 hover:bg-brandOrange hover:text-white transition-colors h-full">
                         DENTAL SUPPLIES <i class="fa-solid fa-caret-down ml-1"></i>
@@ -79,14 +78,14 @@
                 </div>
             </div>
 
-            <!-- Mobile Controls -->
-            <div class="lg:hidden flex items-center gap-4">
-                <button class="lang-toggle-btn notranslate px-3 h-9 rounded-full bg-gray-100 dark:bg-gray-800 focus:outline-none text-xs font-bold text-gray-600 dark:text-gray-300" translate="no">FR</button>
-                <button class="theme-toggle-btn p-2 rounded-full bg-gray-100 dark:bg-gray-800 focus:outline-none">
-                    <i class="theme-icon fa-solid fa-moon text-gray-600 dark:text-gray-300"></i>
+            <!-- MOBILE CONTROLS (Tighter Spacing) -->
+            <div class="lg:hidden flex items-center gap-1.5 sm:gap-4 shrink-0">
+                <button class="lang-toggle-btn notranslate px-2 sm:px-3 h-8 sm:h-9 rounded-full bg-gray-100 dark:bg-gray-800 focus:outline-none text-[10px] sm:text-xs font-bold text-gray-600 dark:text-gray-300" translate="no">FR</button>
+                <button class="theme-toggle-btn p-1.5 sm:p-2 rounded-full bg-gray-100 dark:bg-gray-800 focus:outline-none">
+                    <i class="theme-icon fa-solid fa-moon text-sm sm:text-base text-gray-600 dark:text-gray-300"></i>
                 </button>
-                <button id="mobile-menu-btn" class="text-gray-600 dark:text-gray-300 focus:outline-none p-2 w-10 text-center">
-                    <i class="fa-solid fa-bars text-2xl transition-transform duration-300"></i>
+                <button id="mobile-menu-btn" class="text-gray-600 dark:text-gray-300 focus:outline-none p-1.5 sm:p-2 w-8 sm:w-10 text-center">
+                    <i class="fa-solid fa-bars text-xl sm:text-2xl transition-transform duration-300"></i>
                 </button>
             </div>
         </div>
@@ -109,7 +108,6 @@
 
             <a href="services.html" class="mobile-link block px-4 py-3 text-sm font-bold uppercase text-gray-900 dark:text-white hover:text-brandOrange">SERVICES</a>
             
-            <!-- MOBILE DAIRY SUPPLIES (Added nav-dairy-item class) -->
             <button class="nav-dairy-item mobile-dropdown-btn flex justify-between items-center w-full text-left px-4 py-3 text-sm font-bold uppercase text-gray-900 dark:text-white hover:text-brandOrange transition-colors">
                 DAIRY SUPPLIES <i class="fa-solid fa-caret-down transition-transform duration-300"></i>
             </button>
@@ -129,7 +127,6 @@
                 <a href="flavored-powders.html" class="mobile-link text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-brandOrange py-1.5 pl-2 pb-3">Flavored Drinks Powder</a>
             </div>
 
-            <!-- MOBILE DENTAL SUPPLIES (Added nav-pharma-item class) -->
             <button class="nav-pharma-item mobile-dropdown-btn flex justify-between items-center w-full text-left px-4 py-3 text-sm font-bold uppercase text-gray-900 dark:text-white hover:text-brandOrange transition-colors">
                 DENTAL SUPPLIES <i class="fa-solid fa-caret-down transition-transform duration-300"></i>
             </button>
