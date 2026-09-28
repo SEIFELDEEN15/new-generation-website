@@ -2,10 +2,36 @@
     const NAVBAR_CACHE_KEY = 'cached_navbar_html_v1';
     let cachedHTML = sessionStorage.getItem(NAVBAR_CACHE_KEY);
 
-    // Start fetching IMMEDIATELY on script execution (parallel network request)
     let fetchPromise = !cachedHTML ? fetch('navbar.html').then(r => r.ok ? r.text() : '').catch(() => '') : null;
 
     function initNavbarFunctionality() {
+        
+        // --- DIVISION CONTEXT LOGIC ---
+        const path = window.location.pathname.toLowerCase();
+        
+        // Lists of words that identify which division a page belongs to
+        const dairyKeywords = ['dairy', 'bakery', 'chocolate', 'ice-cream', 'fruit-fillings', 'retail-powders', 'flavored-powders'];
+        const pharmaKeywords = ['dental', 'bona-aid', 'restorative', 'endodontics', 'orthodontics', 'implant', 'prosthetics', 'perio-surgery'];
+        
+        // If user is on the main Gateway Index, reset the memory. Otherwise, record which division they enter.
+        if (path.endsWith('index.html') || path === '/' || path.endsWith('/')) {
+            sessionStorage.removeItem('active_division');
+        } else if (dairyKeywords.some(keyword => path.includes(keyword))) {
+            sessionStorage.setItem('active_division', 'dairy');
+        } else if (pharmaKeywords.some(keyword => path.includes(keyword))) {
+            sessionStorage.setItem('active_division', 'pharma');
+        }
+
+        const activeDivision = sessionStorage.getItem('active_division');
+        
+        // Hide the irrelevant menu items using CSS !important to ensure it overrides Tailwind
+        if (activeDivision === 'dairy') {
+            document.querySelectorAll('.nav-pharma-item').forEach(el => el.style.setProperty('display', 'none', 'important'));
+        } else if (activeDivision === 'pharma') {
+            document.querySelectorAll('.nav-dairy-item').forEach(el => el.style.setProperty('display', 'none', 'important'));
+        }
+        // ------------------------------
+
         const themeToggles = document.querySelectorAll('.theme-toggle-btn');
         const themeIcons = document.querySelectorAll('.theme-icon');
 
@@ -26,7 +52,7 @@
         themeToggles.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                e.stopImmediatePropagation(); // Stops duplicate toggling from old scripts
+                e.stopImmediatePropagation(); 
                 
                 const willBeDark = !document.documentElement.classList.contains('dark');
                 if (willBeDark) {
@@ -45,7 +71,7 @@
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                e.stopImmediatePropagation(); // Stops duplicate toggling from old scripts
+                e.stopImmediatePropagation(); 
                 
                 mobileMenu.classList.toggle('hidden');
                 const icon = mobileMenuBtn.querySelector('i');
@@ -60,7 +86,7 @@
         mobileDropdownBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                e.stopImmediatePropagation(); // Stops duplicate toggling
+                e.stopImmediatePropagation(); 
                 
                 const content = btn.nextElementSibling;
                 const caret = btn.querySelector('.fa-caret-down');
@@ -74,7 +100,6 @@
             });
         });
 
-        // Ensure clicking links closes the mobile menu cleanly
         const mobileLinks = document.querySelectorAll('.mobile-link');
         mobileLinks.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -92,7 +117,6 @@
             });
         });
 
-        // FIXED: Removed stopImmediatePropagation so translate-widget.js can hear the click
         const langBtns = document.querySelectorAll('.lang-toggle-btn');
         langBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -116,22 +140,18 @@
 
     function tryMount(html) {
         if (inject(html)) return;
-        // If placeholder DOM element isn't ready yet, observe until it appears
         const observer = new MutationObserver(() => {
             if (inject(html)) observer.disconnect();
         });
         observer.observe(document.documentElement, { childList: true, subtree: true });
     }
 
-    // 1. If we have cache, render instantly (0ms)
     if (cachedHTML) {
         tryMount(cachedHTML);
-        // Refresh cache in background
         fetch('navbar.html').then(r => r.ok ? r.text() : '').then(fresh => {
             if (fresh && fresh !== cachedHTML) sessionStorage.setItem(NAVBAR_CACHE_KEY, fresh);
         }).catch(() => {});
     } else if (fetchPromise) {
-        // 2. If first visit, mount the millisecond the fetch completes
         fetchPromise.then(html => {
             if (html) {
                 sessionStorage.setItem(NAVBAR_CACHE_KEY, html);
